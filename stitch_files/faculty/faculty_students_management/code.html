@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synergy - Faculty Portal | Students</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D4A373", // Accent Gold
+                        "secondary": "#6B9080", // Teal-Gold
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#121212",
+                        "surface": "#1C1C1C",
+                        "card": "#232323",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"],
+                        "sans": ["Poppins", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Poppins', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Public Sans', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-surface border-r border-white/5 flex flex-col shrink-0">
+<div class="p-6 flex items-center gap-3">
+<div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">bolt</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tight text-primary">Synergy</h1>
+<p class="text-[10px] uppercase tracking-widest text-secondary font-semibold">Faculty Portal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-primary transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-medium">Verification</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary/10 text-primary rounded-xl" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-medium">Students</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-primary transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-medium">Analytics</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t border-white/5">
+<div class="flex items-center gap-3 p-2 rounded-xl bg-card">
+<div class="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="overflow-hidden">
+<p class="text-xs font-semibold truncate">Dr. Aris Thorne</p>
+<p class="text-[10px] text-slate-500">Senior Dean</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+<!-- Topbar -->
+<header class="h-16 border-b border-white/5 bg-surface/50 backdrop-blur-md flex items-center justify-between px-8 shrink-0 z-20">
+<div class="flex items-center gap-4 w-1/3">
+<div class="relative w-full max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="w-full bg-card border-none rounded-xl pl-10 pr-4 py-2 text-sm focus:ring-1 focus:ring-primary/50 placeholder:text-slate-600" placeholder="Search students, IDs, or skills..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex bg-card p-1 rounded-xl">
+<button class="px-4 py-1.5 text-xs font-bold bg-primary text-background-dark rounded-lg">Faculty</button>
+<button class="px-4 py-1.5 text-xs font-bold text-slate-400 hover:text-white transition-colors">Admin</button>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-xl bg-card text-slate-400 hover:text-primary relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full ring-2 ring-surface"></span>
+</button>
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-secondary p-[2px]">
+<div class="w-full h-full rounded-full bg-surface flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Faculty profile avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNa2g5dE_a43m56u78MyG38ipFhkCLblGGbcuOkyYTOGXfBI-9xthshrScKxKUOb8wjiFKICjNroUnyNaaVFlatwQwzlRMzGw5jJgvsaPI8qyNBcCIHlH-fplOrRPlMSEVwOwgSYqKnuJYtDTlvxAcUfScOBl6e7E9lkELKN9S4om-aK767hppl868jpLkdTj1uDCHcKLV19I5kzgivUMcxyzwBMrHyDYTeVHFCSVvq5Li6Zc5IbIIZcodEVGxqyoLCX2_0CkV1Oc"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Scrollable Body -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-8">
+<!-- Header Section -->
+<div class="mb-8">
+<h2 class="text-3xl font-extrabold text-slate-100">Students</h2>
+<p class="text-slate-500 mt-1 max-w-2xl">Monitor student skill progress and verify submitted activities across all departments.</p>
+</div>
+<!-- Quick Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-card p-5 rounded-xl border border-white/5 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Students</p>
+<span class="material-symbols-outlined text-primary/40">groups</span>
+</div>
+<h3 class="text-3xl font-bold text-primary">238</h3>
+<div class="mt-2 flex items-center gap-1.5">
+<span class="text-[10px] text-green-500 font-bold bg-green-500/10 px-1.5 py-0.5 rounded">+12%</span>
+<span class="text-[10px] text-slate-600 italic">vs last month</span>
+</div>
+<!-- Sparkline placeholder -->
+<div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary/0 via-primary/40 to-primary/0"></div>
+</div>
+<div class="bg-card p-5 rounded-xl border border-white/5 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Pending Verifications</p>
+<span class="material-symbols-outlined text-primary/40">pending_actions</span>
+</div>
+<h3 class="text-3xl font-bold text-primary">17</h3>
+<div class="mt-2 flex items-center gap-1.5">
+<span class="text-[10px] text-primary font-bold bg-primary/10 px-1.5 py-0.5 rounded">Action Required</span>
+</div>
+</div>
+<div class="bg-card p-5 rounded-xl border border-white/5 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Verified Today</p>
+<span class="material-symbols-outlined text-primary/40">task_alt</span>
+</div>
+<h3 class="text-3xl font-bold text-primary">24</h3>
+<div class="mt-2 flex items-center gap-1.5">
+<span class="text-[10px] text-green-500 font-bold bg-green-500/10 px-1.5 py-0.5 rounded">High Productivity</span>
+</div>
+</div>
+<div class="bg-card p-5 rounded-xl border border-white/5 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Flagged</p>
+<span class="material-symbols-outlined text-red-500/40">report</span>
+</div>
+<h3 class="text-3xl font-bold text-red-500">3</h3>
+<div class="mt-2 flex items-center gap-1.5">
+<span class="text-[10px] text-slate-600 font-bold">Requires Review</span>
+</div>
+</div>
+</div>
+<!-- Filters -->
+<div class="flex flex-wrap gap-4 mb-6 items-center">
+<div class="flex-1 min-w-[200px] relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="w-full bg-surface border border-white/5 rounded-lg pl-10 pr-4 py-2.5 text-sm focus:ring-1 focus:ring-primary/50" placeholder="Global search..." type="text"/>
+</div>
+<select class="bg-surface border border-white/5 rounded-lg text-sm px-4 py-2.5 focus:ring-primary/50 text-slate-300">
+<option>All Departments</option>
+<option>CSE</option>
+<option>AI &amp; ML</option>
+<option>Mechanical</option>
+</select>
+<select class="bg-surface border border-white/5 rounded-lg text-sm px-4 py-2.5 focus:ring-primary/50 text-slate-300">
+<option>All Years</option>
+<option>1st Year</option>
+<option>2nd Year</option>
+<option>3rd Year</option>
+<option>Final Year</option>
+</select>
+<select class="bg-surface border border-white/5 rounded-lg text-sm px-4 py-2.5 focus:ring-primary/50 text-slate-300">
+<option>Status</option>
+<option>Verified</option>
+<option>Pending</option>
+</select>
+<button class="bg-surface border border-white/5 p-2.5 rounded-lg text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+<!-- Table -->
+<div class="bg-card rounded-xl border border-white/5 overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-white/5 bg-white/5">
+<th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Student</th>
+<th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Department</th>
+<th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider text-center">Skills</th>
+<th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider text-center">Pending</th>
+<th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Growth</th>
+<th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider">Last Activity</th>
+<th class="p-4 text-xs font-bold text-slate-400 uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Active/Selected Row Example -->
+<tr class="hover:bg-white/5 transition-colors cursor-pointer bg-primary/[0.03]">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border border-primary/20" data-alt="Rahul Sharma Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjr2Rs7iDUnTHGz-yZwAPSc8fyYObRVI83QBvETbl7Bj9z38Y1AV3FerbjS7EEj07VaRAJ5Y47M74S3xrK3VrTgTvCUieb_eF_bWDklZHwS7_dXHg_k4Vet4mEer4xHfbFRU1pA6zTqUGehvqIERRtZebrGLf6i_jtDFnBSd3mqLPDol7PRvlGsy_OnBhmV4fr7dH-oVrKtUDNh3P67g6TJNNwo06AKXFA3uoytBm4tcoE8Fd5IkBbIt80A5eYLeNtkgoQ2U8kdos"/>
+<div>
+<p class="text-sm font-bold text-slate-100">Rahul Sharma</p>
+<p class="text-[10px] text-slate-500 font-mono uppercase tracking-tighter">RA201234</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded uppercase">CSE</span>
+</td>
+<td class="p-4 text-center">
+<span class="text-sm font-medium text-slate-300">14 Skills</span>
+</td>
+<td class="p-4 text-center">
+<div class="flex items-center justify-center">
+<span class="w-6 h-6 flex items-center justify-center bg-primary text-background-dark text-[10px] font-bold rounded-full">2</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 82%"></div>
+</div>
+<span class="text-xs font-bold text-primary">82</span>
+</div>
+</td>
+<td class="p-4">
+<p class="text-xs text-slate-400">2 days ago</p>
+</td>
+<td class="p-4 text-right">
+<button class="px-4 py-1.5 bg-primary text-background-dark text-xs font-bold rounded-lg hover:brightness-110 transition-all shadow-lg shadow-primary/10">View</button>
+</td>
+</tr>
+<!-- Standard Row -->
+<tr class="hover:bg-white/5 transition-colors cursor-pointer">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border border-white/5" data-alt="Ananya Roy Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTPlj4oXncjVPV1zFRwbocrub2azTpHPuI994A0BwmQ8BuRPwckR55ongd2Kr5ywJHC0jGswqbDSPIfzactB4AewJEnOrTt7MWLjVUJrjrNs36o464sXKjOCyJm-iGtfOk70wZaHpGwF8Q9RATZugJCQ17e0C8GsknUZggL9zOHoR5eryxrgthjFhqf0s8Xn6hx2RxN_n1425SRT2W55GxePkmQ_UqZ3eyKOrTWBrSqJh7ZEREhBnrNfSQvOrzk_OEzO8rNUo28X8"/>
+<div>
+<p class="text-sm font-bold text-slate-100">Ananya Roy</p>
+<p class="text-[10px] text-slate-500 font-mono uppercase tracking-tighter">RA201567</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded uppercase">AI &amp; ML</span>
+</td>
+<td class="p-4 text-center">
+<span class="text-sm font-medium text-slate-300">19 Skills</span>
+</td>
+<td class="p-4 text-center">
+<span class="text-sm text-slate-600">—</span>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 94%"></div>
+</div>
+<span class="text-xs font-bold text-primary">94</span>
+</div>
+</td>
+<td class="p-4">
+<p class="text-xs text-slate-400">5 hours ago</p>
+</td>
+<td class="p-4 text-right">
+<button class="px-4 py-1.5 border border-white/10 text-slate-300 text-xs font-bold rounded-lg hover:bg-white/5 transition-all">View</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors cursor-pointer">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full border border-white/5" data-alt="Vikram Jeet Avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mSxSPh-_GzV_k71ViV-4SaKkCggq286WOq3bGZQH1QQq9C2TLyQ0SE-LCF6RtE--LSl35Vjr96H-meJY9SmHDFVFSti65DViFqmpl-UEHd1T3zKfw_8BMc_HNkhNJV6cXsYB45lWqFrOnqb1nVAUlt3HhviqMXebfpWZ7oZNrGIY2o2Vg0lKKS40Zz3y1Y3wQZoms9A8Muv_Oa6eZU0oqfaztuq33kqfh1YU9pRyRGtJoJO6OrMSc1dBVQmNUrUhIW5GGgXmPqY"/>
+<div>
+<p class="text-sm font-bold text-slate-100">Vikram Jeet</p>
+<p class="text-[10px] text-slate-500 font-mono uppercase tracking-tighter">RA201889</p>
+</div>
+</div>
+</td>
+<td class="p-4">
+<span class="px-2 py-1 bg-secondary/10 text-secondary text-[10px] font-bold rounded uppercase">CSE</span>
+</td>
+<td class="p-4 text-center">
+<span class="text-sm font-medium text-slate-300">8 Skills</span>
+</td>
+<td class="p-4 text-center">
+<div class="flex items-center justify-center">
+<span class="w-6 h-6 flex items-center justify-center bg-primary text-background-dark text-[10px] font-bold rounded-full">1</span>
+</div>
+</td>
+<td class="p-4">
+<div class="flex items-center gap-2">
+<div class="w-12 h-1.5 bg-white/10 rounded-full overflow-hidden">
+<div class="bg-primary h-full" style="width: 65%"></div>
+</div>
+<span class="text-xs font-bold text-primary">65</span>
+</div>
+</td>
+<td class="p-4">
+<p class="text-xs text-slate-400">1 week ago</p>
+</td>
+<td class="p-4 text-right">
+<button class="px-4 py-1.5 border border-white/10 text-slate-300 text-xs font-bold rounded-lg hover:bg-white/5 transition-all">View</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Student Detail Drawer (Overlayed on the right) -->
+<div class="absolute inset-y-0 right-0 w-[480px] bg-surface border-l border-white/10 shadow-2xl z-30 transform translate-x-0 flex flex-col">
+<!-- Drawer Header -->
+<div class="p-6 border-b border-white/5 flex justify-between items-center">
+<h3 class="text-lg font-bold">Student Profile</h3>
+<button class="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-6">
+<!-- Profile Header Card -->
+<div class="bg-card p-6 rounded-2xl border border-white/5 mb-8">
+<div class="flex items-start gap-4">
+<div class="relative">
+<img class="w-20 h-20 rounded-2xl border-2 border-primary shadow-xl shadow-primary/10" data-alt="Rahul Sharma HD avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqBL1ObHcxBGbMAYsJgwuJo0xoAND-7LNPK0km5N2reP_XYPqNCTgwNCZH_WWrC7n2lot-OiYcR-WndplKfVKSrfefPLJutIFlSdWgRf8zx1e-1phXFd8B_k_j1SOnVQay9TTkaffyvlKp5bpKEG0fmeTH4UkJBDwzYTJDliDLDxdMNWaETGxfxndYWEbE22TSmq7rd4G1B62smW7nmFUh0kgVOElFjfOACkzUuerBV4kGv-EMJhi75lS-FvPLaDhK19N_NoLlvMw"/>
+<span class="absolute -bottom-2 -right-2 bg-primary text-background-dark p-1 rounded-lg text-[10px] font-bold uppercase tracking-tighter">Verified</span>
+</div>
+<div>
+<h4 class="text-xl font-bold">Rahul Sharma</h4>
+<p class="text-xs text-slate-500 mb-2">B.Tech CSE | Section A</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-primary/20 text-primary text-[10px] font-bold rounded-full border border-primary/20">Top Performer</span>
+<span class="px-2 py-0.5 bg-secondary/20 text-secondary text-[10px] font-bold rounded-full border border-secondary/20">Hackathon Lead</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Growth Analytics Section -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-card/50 p-4 rounded-xl border border-white/5 flex flex-col items-center justify-center">
+<div class="relative w-20 h-20 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-white/5" cx="40" cy="40" fill="transparent" r="34" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary" cx="40" cy="40" fill="transparent" r="34" stroke="currentColor" stroke-dasharray="213.6" stroke-dashoffset="38.4" stroke-width="6"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-xl font-black text-primary">82</span>
+</div>
+</div>
+<p class="text-[10px] uppercase font-bold text-slate-500 mt-2">Growth Score</p>
+</div>
+<div class="bg-card/50 p-4 rounded-xl border border-white/5">
+<p class="text-[10px] uppercase font-bold text-slate-500 mb-2">Skill Growth</p>
+<div class="h-16 flex items-end gap-1 px-1">
+<div class="flex-1 bg-primary/20 h-1/2 rounded-sm"></div>
+<div class="flex-1 bg-primary/30 h-1/3 rounded-sm"></div>
+<div class="flex-1 bg-primary/50 h-2/3 rounded-sm"></div>
+<div class="flex-1 bg-primary/70 h-3/4 rounded-sm"></div>
+<div class="flex-1 bg-primary h-full rounded-sm"></div>
+<div class="flex-1 bg-primary/80 h-5/6 rounded-sm"></div>
+</div>
+</div>
+</div>
+<!-- Skill Ledger -->
+<div class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<h5 class="text-xs font-bold uppercase tracking-widest text-slate-400">Skill Proficiency</h5>
+<button class="text-primary text-[10px] font-bold hover:underline">View All</button>
+</div>
+<div class="space-y-4">
+<div>
+<div class="flex justify-between text-xs mb-1.5">
+<span class="font-medium text-slate-200">React.js</span>
+<span class="text-primary font-bold">Advanced</span>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full">
+<div class="h-full bg-primary rounded-full shadow-[0_0_8px_rgba(212,163,115,0.4)]" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1.5">
+<span class="font-medium text-slate-200">Python (Data Science)</span>
+<span class="text-secondary font-bold">Intermediate</span>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full">
+<div class="h-full bg-secondary rounded-full" style="width: 62%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-xs mb-1.5">
+<span class="font-medium text-slate-200">Node.js</span>
+<span class="text-slate-500 font-bold">Beginner</span>
+</div>
+<div class="w-full h-1.5 bg-white/5 rounded-full">
+<div class="h-full bg-primary/40 rounded-full" style="width: 30%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Timeline & Verification -->
+<div class="mb-8">
+<h5 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Verification Panel</h5>
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-4">
+<div class="flex gap-3 mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">code_blocks</span>
+</div>
+<div>
+<p class="text-sm font-bold">Implemented Graph Algorithm</p>
+<p class="text-[10px] text-slate-500">Submitted 4 hours ago • Backend Engineering</p>
+</div>
+</div>
+<div class="space-y-2 mb-4">
+<div class="flex items-center gap-2 p-2 bg-surface rounded-lg border border-white/5 hover:bg-white/5 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm text-slate-400">link</span>
+<span class="text-xs text-slate-300 truncate flex-1">github.com/rahulsh/graph-algo-v1</span>
+<span class="material-symbols-outlined text-xs text-slate-500">open_in_new</span>
+</div>
+<div class="flex items-center gap-2 p-2 bg-surface rounded-lg border border-white/5 hover:bg-white/5 cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-sm text-slate-400">picture_as_pdf</span>
+<span class="text-xs text-slate-300 truncate flex-1">project_documentation.pdf</span>
+<span class="material-symbols-outlined text-xs text-slate-500">download</span>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="flex-1 py-2 bg-primary text-background-dark text-[10px] font-black uppercase tracking-widest rounded-lg hover:brightness-110 shadow-lg shadow-primary/10">Verify</button>
+<button class="flex-1 py-2 border border-white/10 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded-lg hover:bg-red-500/10 hover:text-red-500 hover:border-red-500/20 transition-all">Reject</button>
+</div>
+</div>
+</div>
+<!-- History Timeline -->
+<div class="relative pl-6 border-l border-white/5 space-y-6">
+<div class="relative">
+<span class="absolute -left-[31px] top-0 w-3 h-3 bg-secondary rounded-full ring-4 ring-surface"></span>
+<p class="text-[10px] font-bold text-secondary uppercase">2 Days Ago</p>
+<p class="text-xs font-medium text-slate-300">Built REST API for Inventory System</p>
+<p class="text-[10px] text-slate-500">Verified by Prof. Singh</p>
+</div>
+<div class="relative opacity-60">
+<span class="absolute -left-[31px] top-0 w-3 h-3 bg-slate-600 rounded-full ring-4 ring-surface"></span>
+<p class="text-[10px] font-bold text-slate-500 uppercase">1 Week Ago</p>
+<p class="text-xs font-medium text-slate-400">Cloud Fundamentals Certification</p>
+</div>
+</div>
+</div>
+<!-- Footer Info -->
+<div class="p-6 bg-card/50 border-t border-white/5">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-white/5 text-slate-300 text-xs font-bold rounded-xl hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Export Growth Report
+                    </button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

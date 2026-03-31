@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synergy Admin - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "obsidian-bg": "#121212",
+                "obsidian-surface": "#1C1C1C",
+                "obsidian-card": "#232323",
+                "primary-gold": "#D4A373",
+                "deep-gold": "#B08968",
+                "soft-gold": "#E9C46A",
+                "teal-gold": "#6B9080",
+                "text-primary": "#F1F5F9",
+                "text-muted": "#94A3B8",
+                "success": "#38B000",
+                "error": "#EF4444",
+                "info": "#60A5FA",
+              },
+              fontFamily: {
+                "sans": ["Inter", "sans-serif"],
+                "micro": ["Poppins", "sans-serif"]
+              },
+              spacing: {
+                '8': '2rem',
+                '2': '0.5rem',
+                '4': '1rem',
+                '1': '0.25rem',
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #121212; color: #F1F5F9; }
+        .micro-text { font-family: 'Poppins', sans-serif; }
+        .gold-btn {
+            background-color: #D4A373;
+            color: #121212;
+        }
+        .gold-btn:hover {
+            background-color: #E9C46A;
+        }
+        .obsidian-border {
+            border-color: #2A2A2A;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary-gold/30">
+<div class="relative flex min-h-screen w-full overflow-x-hidden bg-obsidian-bg">
+<!-- Sidebar -->
+<aside class="w-64 flex-shrink-0 bg-obsidian-surface border-r obsidian-border flex flex-col hidden md:flex">
+<div class="p-8 flex items-center gap-3">
+<div class="size-8 bg-primary-gold rounded flex items-center justify-center text-obsidian-bg">
+<span class="material-symbols-outlined font-bold text-xl">diamond</span>
+</div>
+<h2 class="text-text-primary text-xl font-bold tracking-tight">Synergy</h2>
+</div>
+<nav class="flex-1 px-4 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">group</span>
+<span class="font-medium">Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">analytics</span>
+<span class="font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary-gold/10 text-primary-gold rounded-lg border border-primary-gold/20" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-text-muted hover:text-text-primary hover:bg-white/5 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]">dns</span>
+<span class="font-medium">System</span>
+</a>
+</nav>
+<div class="p-4 mt-auto border-t obsidian-border">
+<button class="flex w-full items-center justify-center gap-2 px-4 py-2.5 bg-white/5 text-text-muted rounded-lg hover:bg-white/10 hover:text-text-primary transition-all">
+<span class="material-symbols-outlined text-sm">logout</span>
+<span class="text-sm font-semibold">Log Out</span>
+</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- Top Nav -->
+<header class="h-16 border-b obsidian-border bg-obsidian-surface flex items-center justify-between px-8 sticky top-0 z-10">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-obsidian-bg border-none focus:ring-1 focus:ring-primary-gold text-sm text-text-primary placeholder:text-text-muted" placeholder="Search settings..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-text-muted hover:bg-white/5 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary-gold rounded-full"></span>
+</button>
+<div class="h-6 w-px bg-white/10 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-semibold text-text-primary leading-none">Admin User</p>
+<p class="text-[10px] text-text-muted micro-text uppercase tracking-wider mt-1">Super Admin</p>
+</div>
+<div class="size-10 rounded-full border border-primary-gold/30 bg-obsidian-bg p-0.5">
+<div class="w-full h-full rounded-full bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBwxZOPTzVqDkjOzdSU1UaJg3AQNyQZn1ZV7-FxokSs00RN6qX_FwEkfX2e8837zQSTbFgM-K-vWUE5krYlasNTWM6v0qijB8kJtiLESDmJtyNaWEEeYmWWlrl6c72AeKezCuJ0v1WC4KMbX42yq-rmL4wa5O7Y9s6jDdrA8veRqaG0ntaWUmdBnvuAxTWjm6u-QNdQGrPNW5bmhGyPk3zxKE_iIIslKEhVeqOKy_Z_J0ieIeW_MNJVmqigj3ZpIWcXpcRF_jnkEXs');"></div>
+</div>
+</div>
+</div>
+</header>
+<!-- Content Area -->
+<div class="p-8 max-w-6xl mx-auto w-full">
+<div class="mb-8">
+<h1 class="text-3xl font-bold text-text-primary mb-2">Settings</h1>
+<p class="text-text-muted micro-text">Manage your workspace configuration and security policies.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- General Settings Card -->
+<section class="bg-obsidian-card p-6 rounded-xl border obsidian-border flex flex-col gap-6 shadow-xl">
+<div class="flex items-center gap-3 border-b obsidian-border pb-4">
+<span class="material-symbols-outlined text-primary-gold">tune</span>
+<h3 class="text-lg font-semibold text-text-primary">General Settings</h3>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 micro-text">Platform Name</label>
+<input class="w-full bg-obsidian-surface border-white/5 rounded-lg text-text-primary focus:ring-1 focus:ring-primary-gold focus:border-primary-gold text-sm" type="text" value="Synergy"/>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-text-muted uppercase tracking-widest mb-2 micro-text">Default Cohort</label>
+<select class="w-full bg-obsidian-surface border-white/5 rounded-lg text-text-primary focus:ring-1 focus:ring-primary-gold focus:border-primary-gold text-sm">
+<option>2023</option>
+<option selected="">2024</option>
+<option>2025</option>
+</select>
+</div>
+<div class="flex items-center justify-between py-2">
+<div>
+<p class="text-sm font-medium text-text-primary">Maintenance Mode</p>
+<p class="text-xs text-text-muted micro-text">Disable front-end access for users</p>
+</div>
+<button class="relative inline-flex h-5 w-10 items-center rounded-full bg-obsidian-surface transition-colors">
+<span class="inline-block h-3 w-3 transform rounded-full bg-white/20 transition translate-x-1"></span>
+</button>
+</div>
+</div>
+<div class="pt-4 mt-auto">
+<button class="w-full py-2.5 gold-btn rounded-lg font-bold text-sm shadow-lg shadow-primary-gold/5 transition-all">Save General Changes</button>
+</div>
+</section>
+<!-- User Permissions Card -->
+<section class="bg-obsidian-card p-6 rounded-xl border obsidian-border flex flex-col gap-6 shadow-xl">
+<div class="flex items-center gap-3 border-b obsidian-border pb-4">
+<span class="material-symbols-outlined text-primary-gold">lock_person</span>
+<h3 class="text-lg font-semibold text-text-primary">User Permissions</h3>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-4 rounded-lg bg-obsidian-surface/50 border border-white/5">
+<span class="text-sm text-text-primary">Manager: Edit Projects</span>
+<button class="relative inline-flex h-5 w-10 items-center rounded-full bg-primary-gold">
+<span class="inline-block h-3 w-3 transform rounded-full bg-obsidian-bg transition translate-x-6"></span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg bg-obsidian-surface/50 border border-white/5">
+<span class="text-sm text-text-primary">Editor: Publish Content</span>
+<button class="relative inline-flex h-5 w-10 items-center rounded-full bg-primary-gold">
+<span class="inline-block h-3 w-3 transform rounded-full bg-obsidian-bg transition translate-x-6"></span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 rounded-lg bg-obsidian-surface/50 border border-white/5">
+<span class="text-sm text-text-primary">Viewer: Export Data</span>
+<button class="relative inline-flex h-5 w-10 items-center rounded-full bg-obsidian-surface">
+<span class="inline-block h-3 w-3 transform rounded-full bg-white/20 transition translate-x-1"></span>
+</button>
+</div>
+</div>
+<p class="text-[11px] text-text-muted italic mt-2 micro-text">Custom roles can be defined in the Advanced Roles manager.</p>
+</section>
+<!-- Security & Access Card -->
+<section class="bg-obsidian-card p-6 rounded-xl border obsidian-border flex flex-col gap-6 shadow-xl">
+<div class="flex items-center gap-3 border-b obsidian-border pb-4">
+<span class="material-symbols-outlined text-primary-gold">shield</span>
+<h3 class="text-lg font-semibold text-text-primary">Security &amp; Access Control</h3>
+</div>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-text-primary">Two-Factor Authentication</p>
+<p class="text-xs text-text-muted micro-text">Require 2FA for all administrative roles</p>
+</div>
+<button class="relative inline-flex h-5 w-10 items-center rounded-full bg-primary-gold">
+<span class="inline-block h-3 w-3 transform rounded-full bg-obsidian-bg transition translate-x-6"></span>
+</button>
+</div>
+<div class="space-y-3">
+<p class="text-[10px] font-bold text-text-muted uppercase tracking-widest micro-text">Password Policy</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-obsidian-surface text-[11px] text-text-primary border obsidian-border micro-text">Min. 12 characters</span>
+<span class="px-2.5 py-1 rounded bg-obsidian-surface text-[11px] text-text-primary border obsidian-border micro-text">Uppercase &amp; Symbols</span>
+<span class="px-2.5 py-1 rounded bg-primary-gold/10 text-[11px] text-primary-gold border border-primary-gold/20 micro-text">90-day expiry</span>
+</div>
+</div>
+<div class="pt-2">
+<button class="text-primary-gold text-sm font-medium flex items-center gap-1.5 hover:text-soft-gold transition-colors">
+<span class="material-symbols-outlined text-base">history</span>
+                                View Audit Logs
+                            </button>
+</div>
+</div>
+</section>
+<!-- External Integrations Card -->
+<section class="bg-obsidian-card p-6 rounded-xl border obsidian-border flex flex-col gap-6 shadow-xl">
+<div class="flex items-center gap-3 border-b obsidian-border pb-4">
+<span class="material-symbols-outlined text-primary-gold">hub</span>
+<h3 class="text-lg font-semibold text-text-primary">External Integrations</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-4 border border-white/5 rounded-lg flex items-center justify-between bg-obsidian-surface/30">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-white p-1 flex items-center justify-center overflow-hidden">
+<img class="size-full object-contain" data-alt="LinkedIn logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChVD4haWx5bd69vxpA7KaU964g3wQ4tSoM4NxkAkvgcjsS7sfnl7YYVuN6qOztBVgvVyLg6adaLuql4z5hMw12moiGQCyJhHW_bigb-86kWlPBz1XV7jwRmxDGstlBvh5BbNs8wiBRfHqa4rdzGQX5OqWF1XacoM-_8kY_0Sc5SR17cPbfIs9WmtQn3efD8hjs4n-m7OzcQ4VU7BLBsyPEZ69qkjIUIKNZ5Oz-r7qyayWfZKHteVyLekpWvGgGsk9XEW5bEMX78nE"/>
+</div>
+<span class="text-sm text-text-primary font-medium">LinkedIn</span>
+</div>
+<button class="text-[10px] font-bold text-primary-gold px-3 py-1 border border-primary-gold rounded hover:bg-primary-gold/10 transition-colors uppercase tracking-wider micro-text">Connect</button>
+</div>
+<div class="p-4 border border-white/5 rounded-lg flex items-center justify-between bg-obsidian-surface/30">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-white p-1 flex items-center justify-center overflow-hidden">
+<img class="size-full object-contain" data-alt="GitHub logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0zww7GJgLjZ2JlFGfjsb_ScaAqrDSauanzcS8yH84s3PLvh4sQQ9fK9hKwwZ-N5W0VP2nNSqSDvEKJHX4L2EAeq15IfJEnrQ2AnMfcfgJCuNFpxGOqW3qJVRQ8QGM376-DZlUsVPKrGqkUrEbfMJBPnRsK7OCu2bz1A4QGucGOULIT6V9U81w4cUbjZ-EuZrh_D5sfOnNRGQFf_j8463pYNJQ2XzwXrBwfVP0MI27N2tQWFbaqxisj8etOUudUEwnNqUetvM0eG0"/>
+</div>
+<span class="text-sm text-text-primary font-medium">GitHub</span>
+</div>
+<button class="text-[10px] font-bold text-text-muted px-3 py-1 border obsidian-border rounded bg-white/5 uppercase tracking-wider micro-text">Linked</button>
+</div>
+<div class="p-4 border border-white/5 rounded-lg flex items-center justify-between bg-obsidian-surface/30">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-white p-1 flex items-center justify-center overflow-hidden">
+<img class="size-full object-contain" data-alt="Google logo icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZWdO7FE8HgkH58Z1m9tUr9NLa-6DnN2QdVSxTr0aM4ckKNJGgDTbv08LJZ_BNYlDl5RxgeFjjU34a93fWI1SVsLUxF16dol3U0_SVNVjqXIWMIAUbGTbxphsv-WKc3hjMOlBdurYo2iO-T7hwgfWMrVjPFhX6fOepL-yGA8q9juN1iNfl0jPhap-eOS8odp7Lit-eEzheBHBbDOczf33lDSBhCOftifKqqsDt6KW98fkD9MIk2wHYbvTMA698bJ_A8cIiv2L_6Fo"/>
+</div>
+<span class="text-sm text-text-primary font-medium">Google</span>
+</div>
+<button class="text-[10px] font-bold text-primary-gold px-3 py-1 border border-primary-gold rounded hover:bg-primary-gold/10 transition-colors uppercase tracking-wider micro-text">Connect</button>
+</div>
+<div class="p-4 border border-white/5 rounded-lg flex items-center justify-between bg-obsidian-surface/30">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-white p-1 flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-obsidian-bg text-xl">dataset</span>
+</div>
+<span class="text-sm text-text-primary font-medium">ERP Suite</span>
+</div>
+<button class="text-[10px] font-bold text-primary-gold px-3 py-1 border border-primary-gold rounded hover:bg-primary-gold/10 transition-colors uppercase tracking-wider micro-text">Connect</button>
+</div>
+</div>
+</section>
+<!-- System Maintenance Card -->
+<section class="bg-obsidian-card p-6 rounded-xl border obsidian-border flex flex-col gap-6 shadow-xl lg:col-span-2">
+<div class="flex items-center gap-3 border-b obsidian-border pb-4">
+<span class="material-symbols-outlined text-primary-gold">build</span>
+<h3 class="text-lg font-semibold text-text-primary">System Maintenance</h3>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="flex-1 min-w-[240px] flex items-center justify-between p-5 bg-obsidian-surface hover:bg-white/5 border border-white/5 rounded-xl transition-all group">
+<div class="flex flex-col items-start">
+<span class="text-text-primary font-bold text-sm">Run Database Backup</span>
+<span class="text-[11px] text-text-muted micro-text mt-1">Last run: 2 hours ago</span>
+</div>
+<span class="material-symbols-outlined text-teal-gold group-hover:scale-110 transition-transform">database</span>
+</button>
+<button class="flex-1 min-w-[240px] flex items-center justify-between p-5 bg-obsidian-surface hover:bg-white/5 border border-white/5 rounded-xl transition-all group">
+<div class="flex flex-col items-start">
+<span class="text-text-primary font-bold text-sm">Clear System Cache</span>
+<span class="text-[11px] text-text-muted micro-text mt-1">Recommended before updates</span>
+</div>
+<span class="material-symbols-outlined text-teal-gold group-hover:scale-110 transition-transform">mop</span>
+</button>
+<button class="flex-1 min-w-[240px] flex items-center justify-between p-5 bg-obsidian-surface hover:bg-white/5 border border-white/5 rounded-xl transition-all group">
+<div class="flex flex-col items-start">
+<span class="text-text-primary font-bold text-sm">Check for Updates</span>
+<span class="text-[11px] text-text-muted micro-text mt-1">Current version: v2.4.0</span>
+</div>
+<span class="material-symbols-outlined text-teal-gold group-hover:scale-110 transition-transform">system_update</span>
+</button>
+</div>
+</section>
+</div>
+</div>
+<!-- Footer -->
+<footer class="mt-auto p-8 border-t obsidian-border flex justify-between items-center bg-obsidian-surface">
+<p class="text-[11px] text-text-muted micro-text uppercase tracking-widest">© 2024 Synergy Enterprise Control. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="text-[11px] text-text-muted hover:text-primary-gold transition-colors micro-text uppercase tracking-widest" href="#">Documentation</a>
+<a class="text-[11px] text-text-muted hover:text-primary-gold transition-colors micro-text uppercase tracking-widest" href="#">Privacy Policy</a>
+<a class="text-[11px] text-text-muted hover:text-primary-gold transition-colors micro-text uppercase tracking-widest" href="#">Support</a>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

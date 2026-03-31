@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synergy - Recent Activity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;900&amp;family=Inter:wght@400;600;700&amp;family=Poppins:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D4A373", // Gold Accent
+                        "teal-accent": "#2D6A4F", // Secondary Teal
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#121212", // Obsidian
+                        "surface": "#1C1C1C",
+                        "card": "#232323",
+                        "muted": "#94A3B8",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Public Sans", "sans-serif"],
+                        "micro": ["Poppins", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .font-display { font-family: 'Inter', sans-serif; }
+        .font-micro { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 flex-shrink-0 bg-surface dark:bg-surface border-r border-slate-200 dark:border-slate-800 flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-background-dark">
+<span class="material-symbols-outlined font-bold">account_tree</span>
+</div>
+<h2 class="text-xl font-display font-bold tracking-tight text-slate-900 dark:text-slate-100">Synergy</h2>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-muted hover:bg-slate-100 dark:hover:bg-card transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-primary/10 text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-sm font-medium">Activity</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-muted hover:bg-slate-100 dark:hover:bg-card transition-colors" href="#">
+<span class="material-symbols-outlined">school</span>
+<span class="text-sm font-medium">Courses</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-muted hover:bg-slate-100 dark:hover:bg-card transition-colors" href="#">
+<span class="material-symbols-outlined">verified</span>
+<span class="text-sm font-medium">Certifications</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-muted hover:bg-slate-100 dark:hover:bg-card transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2">
+<div class="size-10 rounded-full bg-card overflow-hidden border border-primary/20">
+<img class="w-full h-full object-cover" data-alt="Portrait of a male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjOXlnob3kaRPvhrBKc88e6PEqITFVirnYGVkygG5BA2yRjMh0Goziu1GEFEbPXNTbbpql_-E47psoGSOrnZxJCzqZOf-AoGSW7mYq3Z8SiiMjXDj-V-FBQidbz2nDLFjvoVlA8HjUI08sLWsjmY7LZauDADaNxXM10x9N_JZIu9y43WDWLtbuADg4RqnvM2MOCVrdhqxtJNMtUKM7-oxxsVKDavaUN6XkT3g22RDmhQnLhFZl5U2czH0kn5xhqq8fVSAQQPxoWEY"/>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold truncate">Alex Sterling</p>
+<p class="text-xs text-muted truncate">CS Sophomore</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-y-auto bg-background-light dark:bg-background-dark">
+<!-- Header -->
+<header class="h-16 flex items-center justify-between px-8 border-b border-slate-200 dark:border-slate-800 bg-surface/50 backdrop-blur-md sticky top-0 z-10">
+<div class="flex items-center gap-4 flex-1 max-w-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted text-lg">search</span>
+<input class="w-full bg-slate-100 dark:bg-card border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/50 text-slate-100" placeholder="Search activities, tags, or dates..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="size-10 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-card text-muted hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</header>
+<div class="p-8 max-w-5xl mx-auto w-full">
+<!-- Title Section -->
+<div class="mb-8">
+<h1 class="text-3xl font-display font-bold text-slate-900 dark:text-slate-100 mb-2">Recent Activity</h1>
+<p class="text-muted font-body">Manage and track your verified academic contributions and extracurricular milestones.</p>
+</div>
+<!-- StatPills Section -->
+<div class="flex flex-wrap gap-4 mb-10">
+<div class="flex-1 min-w-[200px] bg-card border border-slate-800 p-5 rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-muted font-micro text-xs uppercase tracking-wider font-semibold">Total Verified</span>
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-display font-bold">24</span>
+<span class="text-teal-500 text-xs font-semibold">+3 this month</span>
+</div>
+</div>
+<div class="flex-1 min-w-[200px] bg-card border border-slate-800 p-5 rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-muted font-micro text-xs uppercase tracking-wider font-semibold">Service Hours</span>
+<span class="material-symbols-outlined text-primary">schedule</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-display font-bold">128h</span>
+<span class="text-teal-500 text-xs font-semibold">Top 5%</span>
+</div>
+</div>
+<div class="flex-1 min-w-[200px] bg-card border border-slate-800 p-5 rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-muted font-micro text-xs uppercase tracking-wider font-semibold">Impact Score</span>
+<span class="material-symbols-outlined text-primary">star</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-2xl font-display font-bold">942</span>
+<span class="text-primary text-xs font-semibold">Gold Tier</span>
+</div>
+</div>
+</div>
+<!-- Timeline Section -->
+<div class="relative">
+<!-- Vertical Line -->
+<div class="absolute left-6 top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-800"></div>
+<div class="space-y-8 relative">
+<!-- Activity Item 1 -->
+<div class="flex gap-6 group">
+<div class="relative z-10 size-12 flex-shrink-0 bg-primary rounded-full flex items-center justify-center text-background-dark shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div class="flex-1 bg-card border border-slate-800 rounded-xl p-5 hover:border-primary/40 transition-all">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-lg font-display font-semibold text-slate-100">Open Source Contribution: React DevTools</h3>
+<p class="text-xs font-micro text-muted">Submitted 2 hours ago • Project Lab</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-teal-accent/20 text-teal-400 text-[10px] font-bold uppercase tracking-widest border border-teal-500/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Verifier: GitHub
+                                    </span>
+</div>
+<p class="text-sm text-slate-400 mb-4 font-body leading-relaxed">Merged PR #2405: Improved profiling performance for nested component trees in legacy environments.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<div class="size-8 rounded-lg bg-surface flex items-center justify-center text-muted border border-slate-700 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">attachment</span>
+</div>
+<div class="size-8 rounded-lg bg-surface flex items-center justify-center text-muted border border-slate-700 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">link</span>
+</div>
+</div>
+<button class="text-xs font-semibold text-primary hover:underline font-micro">View Detailed Report</button>
+</div>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-6 group">
+<div class="relative z-10 size-12 flex-shrink-0 bg-teal-accent rounded-full flex items-center justify-center text-white shadow-lg shadow-teal-accent/20">
+<span class="material-symbols-outlined">volunteer_activism</span>
+</div>
+<div class="flex-1 bg-card border border-slate-800 rounded-xl p-5 hover:border-primary/40 transition-all">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-lg font-display font-semibold text-slate-100">STEM Tutoring - City High</h3>
+<p class="text-xs font-micro text-muted">Nov 14, 2023 • Community Service</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest border border-primary/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Verifier: EduTrust
+                                    </span>
+</div>
+<p class="text-sm text-slate-400 mb-4 font-body leading-relaxed">Completed 4 hours of advanced calculus tutoring for underrepresented high school seniors.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<div class="size-8 rounded-lg bg-surface flex items-center justify-center text-muted border border-slate-700 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">description</span>
+</div>
+</div>
+<button class="text-xs font-semibold text-primary hover:underline font-micro">View Verification</button>
+</div>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-6 group">
+<div class="relative z-10 size-12 flex-shrink-0 bg-primary/20 rounded-full flex items-center justify-center text-primary shadow-lg">
+<span class="material-symbols-outlined">emoji_events</span>
+</div>
+<div class="flex-1 bg-card border border-slate-800 rounded-xl p-5 hover:border-primary/40 transition-all">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-lg font-display font-semibold text-slate-100">Hackathon Finalist: TechNova 2023</h3>
+<p class="text-xs font-micro text-muted">Nov 10, 2023 • Competition</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-teal-accent/20 text-teal-400 text-[10px] font-bold uppercase tracking-widest border border-teal-500/30 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span> Verifier: MLH
+                                    </span>
+</div>
+<p class="text-sm text-slate-400 mb-4 font-body leading-relaxed">Placed Top 5 among 200+ teams. Developed an AI-driven accessible navigation system for visually impaired users.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<div class="size-8 rounded-lg bg-surface flex items-center justify-center text-muted border border-slate-700 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">image</span>
+</div>
+<div class="size-8 rounded-lg bg-surface flex items-center justify-center text-muted border border-slate-700 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">video_library</span>
+</div>
+</div>
+<button class="text-xs font-semibold text-primary hover:underline font-micro">Project Case Study</button>
+</div>
+</div>
+</div>
+<!-- Date Marker -->
+<div class="flex justify-center relative py-4">
+<span class="bg-surface px-4 py-1 rounded-full border border-slate-800 text-[10px] uppercase font-bold tracking-[0.2em] text-muted">October 2023</span>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-6 group">
+<div class="relative z-10 size-12 flex-shrink-0 bg-card border border-slate-700 rounded-full flex items-center justify-center text-muted">
+<span class="material-symbols-outlined">article</span>
+</div>
+<div class="flex-1 bg-card border border-slate-800 rounded-xl p-5 hover:border-primary/40 transition-all opacity-80">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="text-lg font-display font-semibold text-slate-100">Research Paper Published</h3>
+<p class="text-xs font-micro text-muted">Oct 28, 2023 • Academic</p>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-slate-800 text-slate-400 text-[10px] font-bold uppercase tracking-widest border border-slate-700 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">history</span> Pending...
+                                    </span>
+</div>
+<p class="text-sm text-slate-400 mb-4 font-body leading-relaxed">"Neural Network Optimization for Edge Devices" - Published in the University Undergraduate Journal.</p>
+<div class="flex items-center justify-between">
+<div class="flex gap-2">
+<div class="size-8 rounded-lg bg-surface flex items-center justify-center text-muted border border-slate-700 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">picture_as_pdf</span>
+</div>
+</div>
+<button class="text-xs font-semibold text-primary hover:underline font-micro">View Submission</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More -->
+<div class="mt-12 flex justify-center">
+<button class="px-8 py-3 rounded-xl bg-surface border border-slate-800 text-sm font-display font-semibold hover:border-primary/50 hover:bg-card transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">expand_more</span>
+                        Load Historical Activity
+                    </button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

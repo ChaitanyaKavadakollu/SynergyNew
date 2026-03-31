@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec5b13",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#221610",
+                        // Neutrals derived from #ec5b13 hue (approx 20 degrees)
+                        "obsidian": "#121212",
+                        "surface": "#1c1c1c",
+                        "card-bg": "#232323",
+                        "accent-gold": "#D4A373",
+                        "accent-teal": "#6B9080",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<title>Synergy Analytics Dashboard</title>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-obsidian border-r border-slate-800 hidden md:flex flex-col">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white text-sm">auto_graph</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-white uppercase">Synergy</h1>
+</div>
+<nav class="flex-1 px-4 py-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 text-white bg-primary/20 border-l-2 border-primary rounded-r" href="#">
+<span class="material-icons text-primary">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-icons">groups</span>
+<span class="text-sm font-medium">Cohorts</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-icons">psychology</span>
+<span class="text-sm font-medium">Skill Matrix</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-icons">trending_up</span>
+<span class="text-sm font-medium">Learning Paths</span>
+</a>
+<div class="pt-10 pb-4 text-[10px] uppercase tracking-widest text-slate-500 font-semibold px-3">Administration</div>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-400 hover:text-white hover:bg-white/5 transition-colors" href="#">
+<span class="material-icons text-sm">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 mt-auto">
+<div class="bg-card-bg p-4 rounded-xl flex items-center gap-3">
+<img alt="User Profile" class="w-10 h-10 rounded-full border border-slate-700" data-alt="Portrait of a professional dashboard user" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb7SCofCA8U0EbNQoZHAVx4fjOFrUVOE1k15EwqEOipwlRLaTEi8vzeSHsxK63jyPF_DkunFEB6WozjzXMpKEScP_l4X80mxHDmUexcI4ywZ-OAdND5ZkvgCxnKAQMZkqE506r3W80YjsWi0wme1CCO2iHQV52cvf0TblPd6ZZ4TpRq5sCKNFEm3w4lgpcyQ3OnAFLAc6jPFjch_j1sdYveeobS7zV1iTjcbSoiCyOzHnpGvYVtzz6OAAx_TLsewTAMbgrQg30xyM"/>
+<div>
+<p class="text-xs font-semibold text-white">Alex Rivera</p>
+<p class="text-[10px] text-slate-500">Program Director</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto bg-obsidian text-slate-100">
+<!-- Header/Filters -->
+<header class="sticky top-0 z-10 bg-obsidian/80 backdrop-blur-md border-b border-slate-800 px-8 py-4">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div>
+<h2 class="text-2xl font-semibold tracking-tight text-white">Analytics Overview</h2>
+<p class="text-sm text-slate-400">Monitoring performance metrics across all active cohorts.</p>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<div class="relative">
+<select class="appearance-none bg-surface border border-slate-700 text-slate-300 text-xs rounded-lg px-4 py-2 pr-8 focus:ring-1 focus:ring-primary focus:border-primary">
+<option>Focus Role: Engineering Lead</option>
+<option>Focus Role: Product Manager</option>
+<option>Focus Role: UI/UX Designer</option>
+</select>
+<span class="material-icons absolute right-2 top-2 text-slate-500 text-sm pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface border border-slate-700 text-slate-300 text-xs rounded-lg px-4 py-2 pr-8 focus:ring-1 focus:ring-primary focus:border-primary">
+<option>Cohort: Q1 Alpha Group</option>
+<option>Cohort: Q1 Beta Group</option>
+<option>Cohort: Q2 Gamma Group</option>
+</select>
+<span class="material-icons absolute right-2 top-2 text-slate-500 text-sm pointer-events-none">expand_more</span>
+</div>
+<button class="bg-primary text-white text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-primary/90 transition-colors">
+<span class="material-icons text-sm">download</span>
+                            Export Data
+                        </button>
+</div>
+</div>
+</header>
+<div class="p-8">
+<!-- Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Aggregate Readiness Score (Large circular gauge) -->
+<div class="bg-surface rounded-xl p-6 border border-slate-800 flex flex-col items-center justify-center text-center">
+<h3 class="text-sm font-semibold text-slate-400 mb-6 self-start uppercase tracking-wider">Aggregate Readiness Score</h3>
+<div class="relative flex items-center justify-center">
+<!-- SVG Gauge -->
+<svg class="w-48 h-48 transform -rotate-90">
+<circle class="text-slate-800" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-accent-gold" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="138.23" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center rotate-90">
+<span class="text-5xl font-bold text-white">75%</span>
+<span class="text-xs text-accent-gold font-medium">+4.2% from last week</span>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-2 gap-4 w-full">
+<div class="bg-card-bg/50 p-3 rounded-lg border border-slate-800/50">
+<p class="text-[10px] text-slate-500 uppercase">Target Score</p>
+<p class="text-lg font-semibold text-white">85%</p>
+</div>
+<div class="bg-card-bg/50 p-3 rounded-lg border border-slate-800/50">
+<p class="text-[10px] text-slate-500 uppercase">Participants</p>
+<p class="text-lg font-semibold text-white">124</p>
+</div>
+</div>
+</div>
+<!-- Learning Velocity (Bar chart with gold highlights) -->
+<div class="lg:col-span-2 bg-surface rounded-xl p-6 border border-slate-800 flex flex-col">
+<div class="flex justify-between items-start mb-8">
+<div>
+<h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider">Learning Velocity</h3>
+<p class="text-xs text-slate-500">Modules completed per student per week</p>
+</div>
+<div class="flex gap-2">
+<span class="flex items-center gap-1.5 text-[10px] text-slate-400"><span class="w-2 h-2 rounded-full bg-accent-gold"></span> Current Cohort</span>
+<span class="flex items-center gap-1.5 text-[10px] text-slate-400"><span class="w-2 h-2 rounded-full bg-slate-700"></span> Global Avg</span>
+</div>
+</div>
+<div class="flex-1 flex items-end justify-between gap-2 px-2">
+<!-- Bars -->
+<div class="flex flex-col items-center w-full group">
+<div class="relative w-full flex items-end justify-center gap-1 h-48">
+<div class="w-3 bg-slate-800 rounded-t-sm h-[40%]"></div>
+<div class="w-3 bg-accent-gold rounded-t-sm h-[65%] shadow-[0_0_15px_rgba(212,163,115,0.2)]"></div>
+</div>
+<span class="mt-3 text-[10px] text-slate-500">Wk 1</span>
+</div>
+<div class="flex flex-col items-center w-full group">
+<div class="relative w-full flex items-end justify-center gap-1 h-48">
+<div class="w-3 bg-slate-800 rounded-t-sm h-[45%]"></div>
+<div class="w-3 bg-accent-gold rounded-t-sm h-[58%] shadow-[0_0_15px_rgba(212,163,115,0.2)]"></div>
+</div>
+<span class="mt-3 text-[10px] text-slate-500">Wk 2</span>
+</div>
+<div class="flex flex-col items-center w-full group">
+<div class="relative w-full flex items-end justify-center gap-1 h-48">
+<div class="w-3 bg-slate-800 rounded-t-sm h-[38%]"></div>
+<div class="w-3 bg-accent-gold rounded-t-sm h-[72%] shadow-[0_0_15px_rgba(212,163,115,0.2)]"></div>
+</div>
+<span class="mt-3 text-[10px] text-slate-500">Wk 3</span>
+</div>
+<div class="flex flex-col items-center w-full group">
+<div class="relative w-full flex items-end justify-center gap-1 h-48">
+<div class="w-3 bg-slate-800 rounded-t-sm h-[50%]"></div>
+<div class="w-3 bg-accent-gold rounded-t-sm h-[85%] shadow-[0_0_15px_rgba(212,163,115,0.2)]"></div>
+</div>
+<span class="mt-3 text-[10px] text-slate-500">Wk 4</span>
+</div>
+<div class="flex flex-col items-center w-full group">
+<div class="relative w-full flex items-end justify-center gap-1 h-48">
+<div class="w-3 bg-slate-800 rounded-t-sm h-[42%]"></div>
+<div class="w-3 bg-accent-gold rounded-t-sm h-[78%] shadow-[0_0_15px_rgba(212,163,115,0.2)]"></div>
+</div>
+<span class="mt-3 text-[10px] text-slate-500">Wk 5</span>
+</div>
+<div class="flex flex-col items-center w-full group">
+<div class="relative w-full flex items-end justify-center gap-1 h-48">
+<div class="w-3 bg-slate-800 rounded-t-sm h-[48%]"></div>
+<div class="w-3 bg-accent-gold rounded-t-sm h-[92%] shadow-[0_0_15px_rgba(212,163,115,0.2)]"></div>
+</div>
+<span class="mt-3 text-[10px] text-slate-500">Wk 6</span>
+</div>
+</div>
+</div>
+<!-- Skill Gaps Identified (List of cards) -->
+<div class="bg-surface rounded-xl p-6 border border-slate-800">
+<h3 class="text-sm font-semibold text-slate-400 mb-6 uppercase tracking-wider">Skill Gaps Identified</h3>
+<div class="space-y-4">
+<div class="bg-card-bg p-4 rounded-lg border border-slate-800 hover:border-accent-gold/50 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-white">System Architecture</span>
+<span class="px-2 py-0.5 rounded-full bg-red-900/20 text-red-400 text-[10px] font-bold">CRITICAL</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full mb-1">
+<div class="bg-red-500 h-1.5 rounded-full w-[32%]"></div>
+</div>
+<p class="text-[10px] text-slate-500">32% Competency vs 75% Benchmark</p>
+</div>
+<div class="bg-card-bg p-4 rounded-lg border border-slate-800 hover:border-accent-gold/50 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-white">Microservices Design</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-900/20 text-amber-400 text-[10px] font-bold">MODERATE</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full mb-1">
+<div class="bg-amber-500 h-1.5 rounded-full w-[48%]"></div>
+</div>
+<p class="text-[10px] text-slate-500">48% Competency vs 70% Benchmark</p>
+</div>
+<div class="bg-card-bg p-4 rounded-lg border border-slate-800 hover:border-accent-gold/50 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-white">CI/CD Automation</span>
+<span class="px-2 py-0.5 rounded-full bg-amber-900/20 text-amber-400 text-[10px] font-bold">MODERATE</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full mb-1">
+<div class="bg-amber-500 h-1.5 rounded-full w-[52%]"></div>
+</div>
+<p class="text-[10px] text-slate-500">52% Competency vs 80% Benchmark</p>
+</div>
+<div class="bg-card-bg p-4 rounded-lg border border-slate-800 hover:border-accent-gold/50 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="text-xs font-semibold text-white">GraphQL API Design</span>
+<span class="px-2 py-0.5 rounded-full bg-slate-800 text-slate-400 text-[10px] font-bold">LOW</span>
+</div>
+<div class="w-full bg-slate-800 h-1.5 rounded-full mb-1">
+<div class="bg-slate-400 h-1.5 rounded-full w-[65%]"></div>
+</div>
+<p class="text-[10px] text-slate-500">65% Competency vs 70% Benchmark</p>
+</div>
+</div>
+</div>
+<!-- Trending Skills in Cohort (List with mini-sparklines) -->
+<div class="lg:col-span-2 bg-surface rounded-xl p-6 border border-slate-800">
+<h3 class="text-sm font-semibold text-slate-400 mb-6 uppercase tracking-wider">Trending Skills in Cohort</h3>
+<div class="overflow-x-auto">
+<table class="w-full">
+<thead>
+<tr class="text-left border-b border-slate-800">
+<th class="pb-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Skill Category</th>
+<th class="pb-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">Velocity</th>
+<th class="pb-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest text-right">Trend (7d)</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-800/50">
+<tr class="group hover:bg-white/5 transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-accent-teal/10 flex items-center justify-center">
+<span class="material-icons text-accent-teal text-sm">terminal</span>
+</div>
+<div>
+<p class="text-sm font-medium text-white">Fullstack TypeScript</p>
+<p class="text-[10px] text-slate-500">42 students active</p>
+</div>
+</div>
+</td>
+<td class="py-4">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-white">8.4</span>
+<span class="text-[10px] text-emerald-400 flex items-center"><span class="material-icons text-[12px]">arrow_upward</span>12%</span>
+</div>
+</td>
+<td class="py-4 text-right">
+<div class="inline-flex items-end gap-1 h-8">
+<div class="w-1 bg-accent-teal/20 h-2"></div>
+<div class="w-1 bg-accent-teal/40 h-3"></div>
+<div class="w-1 bg-accent-teal/60 h-5"></div>
+<div class="w-1 bg-accent-teal/80 h-4"></div>
+<div class="w-1 bg-accent-teal h-8"></div>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-white/5 transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-accent-gold/10 flex items-center justify-center">
+<span class="material-icons text-accent-gold text-sm">cloud</span>
+</div>
+<div>
+<p class="text-sm font-medium text-white">AWS Serverless</p>
+<p class="text-[10px] text-slate-500">38 students active</p>
+</div>
+</div>
+</td>
+<td class="py-4">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-white">7.9</span>
+<span class="text-[10px] text-emerald-400 flex items-center"><span class="material-icons text-[12px]">arrow_upward</span>5%</span>
+</div>
+</td>
+<td class="py-4 text-right">
+<div class="inline-flex items-end gap-1 h-8">
+<div class="w-1 bg-accent-gold/20 h-4"></div>
+<div class="w-1 bg-accent-gold/40 h-5"></div>
+<div class="w-1 bg-accent-gold/60 h-3"></div>
+<div class="w-1 bg-accent-gold/80 h-6"></div>
+<div class="w-1 bg-accent-gold h-7"></div>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-white/5 transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-primary/10 flex items-center justify-center">
+<span class="material-icons text-primary text-sm">security</span>
+</div>
+<div>
+<p class="text-sm font-medium text-white">App Security (OWASP)</p>
+<p class="text-[10px] text-slate-500">31 students active</p>
+</div>
+</div>
+</td>
+<td class="py-4">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-white">6.2</span>
+<span class="text-[10px] text-slate-500 flex items-center"><span class="material-icons text-[12px]">remove</span>0%</span>
+</div>
+</td>
+<td class="py-4 text-right">
+<div class="inline-flex items-end gap-1 h-8">
+<div class="w-1 bg-primary/20 h-6"></div>
+<div class="w-1 bg-primary/40 h-6"></div>
+<div class="w-1 bg-primary/60 h-6"></div>
+<div class="w-1 bg-primary/80 h-6"></div>
+<div class="w-1 bg-primary h-6"></div>
+</div>
+</td>
+</tr>
+<tr class="group hover:bg-white/5 transition-colors">
+<td class="py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-accent-teal/10 flex items-center justify-center">
+<span class="material-icons text-accent-teal text-sm">data_object</span>
+</div>
+<div>
+<p class="text-sm font-medium text-white">Event Driven Arch</p>
+<p class="text-[10px] text-slate-500">25 students active</p>
+</div>
+</div>
+</td>
+<td class="py-4">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-white">9.1</span>
+<span class="text-[10px] text-emerald-400 flex items-center"><span class="material-icons text-[12px]">arrow_upward</span>18%</span>
+</div>
+</td>
+<td class="py-4 text-right">
+<div class="inline-flex items-end gap-1 h-8">
+<div class="w-1 bg-accent-teal/20 h-2"></div>
+<div class="w-1 bg-accent-teal/40 h-4"></div>
+<div class="w-1 bg-accent-teal/60 h-2"></div>
+<div class="w-1 bg-accent-teal/80 h-6"></div>
+<div class="w-1 bg-accent-teal h-8"></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Footer Summary -->
+<footer class="mt-8 flex flex-col md:flex-row items-center justify-between p-6 bg-surface border border-slate-800 rounded-xl gap-6">
+<div class="flex items-center gap-4">
+<div class="flex -space-x-3">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Portrait of a young male student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfGdVhUjr7TVY9Yewf1JAzj59rHMia70IjTVKtnn_VjmsILK6nQ6zpqIE7UgC1-DxGAcU5353hGWE-zcrKSPmfL45E6T-Q4-_dZ7y56URRjJ4kmcy7cRc2SjcGQtsWhX2EwHy3e41eXKPlDDmV1XuiGnSecgAAcdmABikk8CY2exYsZDqjj3L7wlgaIZZl1tGYJkdtuNNMI-RNJGRvpyK-i6Qm3Vs9vYORcl3BpROR2dKk9nkvbLnPKbw3yhwvyFJ920Aa24_alAA"/>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Portrait of a young female student" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWTEBT0SNes7iidYNvf0329NLEy_xy5Y3xa_kYyeWwqxmrVwTb6I7LLATQ_6vo5BN-zt1FBnVVNLcI3fPm17q6dbuC9jIllpZehzD28Gxn5KDcj2-_FDT6XLBUSjSurX7jgBeb2FqfLgutsisJ6BARWHQUqRfHSe01CgZy_qRmDAcd6Fh8uuROqLhTTnoot4t9AB_LZaCALgVzAcWEO1ZiiRbZssH1zXkvBIPdUUk4Uu9sgJSzYVphhKm6txXe9JO6QutK9c3MVjA"/>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="Portrait of a professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbTDLQ3paAxjvSFjHEnZSCYJaaK2q2md5xoZLquoY-ykp16qkw-Z6Og_BwGFfLLuctau8QdJLXkhagY2z9i8O_n04LOuAe13Spgy04xJl5I47mm5-5eRZ2Gi5nfXI3IvZgNDcfBrkSOnGesjGtmkvoyw9ICchC7KoZDrOzHOsH6JyYYytLFI1XjyolGhLd2bsgZFxeDgWvv0993UqwLXdC0gZeBCsLtxYpqXuJ0iYOaTciMYobI0-60opF_jwDx6jejLFZG_BhN2k"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-800 flex items-center justify-center text-[10px] font-bold text-slate-300">+21</div>
+</div>
+<p class="text-xs text-slate-400">Top performers in Engineering Lead role this week.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-icons text-accent-gold text-lg">verified_user</span>
+<span class="text-sm font-semibold text-white">System verified data - Last sync: 2 min ago</span>
+</div>
+</footer>
+</div>
+</main>
+</div>
+</body></html>

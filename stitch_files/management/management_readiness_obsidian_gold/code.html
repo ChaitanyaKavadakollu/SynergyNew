@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synergy | Management Readiness Dashboard</title>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter & Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<!-- BEGIN: Tailwind Configuration -->
+<script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                obsidian: {
+                  950: '#0A0A0A',
+                  900: '#121212', // Background primary
+                  800: '#1C1C1C', // Surface
+                  700: '#232323', // Card
+                  600: '#2D2D2D'
+                },
+                accent: {
+                  gold: '#D4A373',      // Accent
+                  deep: '#B08968',      // Accent-deep
+                  soft: '#E9C46A',      // Accent-soft
+                  teal: '#6B9080'       // Accent-secondary
+                },
+                status: {
+                  success: '#38B000',
+                  error: '#EF4444',
+                  info: '#60A5FA'
+                },
+                muted: '#94A3B8'
+              },
+              fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+                micro: ['Poppins', 'sans-serif']
+              }
+            }
+          }
+        }
+    </script>
+<!-- END: Tailwind Configuration -->
+<style data-purpose="custom-animations">
+        body {
+            font-size: 16px;
+        }
+        .glass-panel {
+            background: #232323;
+            border: 1px solid rgba(212, 163, 115, 0.1);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(to right, #D4A373, #E9C46A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .micro-copy {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.625rem;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="bg-obsidian-900 text-[#F1F5F9] font-sans antialiased min-h-screen">
+<!-- BEGIN: AppShell Layout -->
+<div class="flex h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="w-64 bg-obsidian-800 border-r border-obsidian-600 hidden md:flex flex-col">
+<div class="p-6">
+<h1 class="text-2xl font-semibold gold-gradient-text tracking-tight">SYNERGY</h1>
+<p class="micro-copy uppercase text-accent-gold/60 font-medium">Management Suite</p>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-accent-gold/10 text-accent-gold border border-accent-gold/20" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-muted hover:bg-obsidian-700 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Cohorts</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-muted hover:bg-obsidian-700 transition-colors" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Analytics</span>
+</a>
+</nav>
+<div class="p-6 mt-auto border-t border-obsidian-700">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 rounded-full bg-accent-deep flex items-center justify-center text-obsidian-900 font-bold">JD</div>
+<div class="overflow-hidden">
+<p class="text-xs font-semibold truncate">Julian Draxler</p>
+<p class="micro-copy text-muted">VP Operations</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-y-auto bg-obsidian-900">
+<!-- BEGIN: Top Navigation & Filters -->
+<header class="sticky top-0 z-10 bg-obsidian-800/80 backdrop-blur-md px-8 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-obsidian-600">
+<div>
+<h2 class="text-xl font-semibold">Management Readiness</h2>
+<p class="micro-copy text-muted uppercase">Route: /app/management/dashboard</p>
+</div>
+<div class="flex items-center space-x-4">
+<!-- Filter: Role Switcher -->
+<div data-purpose="filter-role">
+<label class="block micro-copy uppercase text-muted mb-1 ml-1">Focus Role</label>
+<select class="bg-obsidian-700 border-obsidian-600 text-sm rounded-md focus:ring-accent-gold focus:border-accent-gold min-w-[160px] text-[#F1F5F9]">
+<option>Engineering Manager</option>
+<option>Product Lead</option>
+<option>Senior Director</option>
+</select>
+</div>
+<!-- Filter: Cohort Selector -->
+<div data-purpose="filter-cohort">
+<label class="block micro-copy uppercase text-muted mb-1 ml-1">Cohort Group</label>
+<select class="bg-obsidian-700 border-obsidian-600 text-sm rounded-md focus:ring-accent-gold focus:border-accent-gold min-w-[160px] text-[#F1F5F9]">
+<option>CS2026 - Q3</option>
+<option>CS2025 - All</option>
+<option>Emerging Leaders</option>
+</select>
+</div>
+<button class="bg-accent-gold hover:bg-accent-deep text-obsidian-900 px-4 py-2 rounded-md text-sm font-bold transition-all shadow-[0_4px_12px_rgba(212,163,115,0.2)] flex items-center gap-2 mt-5">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                    Export Report
+                </button>
+</div>
+</header>
+<!-- END: Top Navigation & Filters -->
+<!-- Dashboard Content -->
+<div class="p-8 space-y-8">
+<!-- BEGIN: Top Row - Score & KPI -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Readiness Score Gauge -->
+<section class="lg:col-span-4 glass-panel rounded-2xl p-8 relative overflow-hidden group" data-purpose="readiness-score">
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-accent-gold/5 rounded-full blur-3xl"></div>
+<h3 class="micro-copy font-medium text-muted mb-6 uppercase tracking-widest">Aggregate Readiness</h3>
+<div class="flex flex-col items-center justify-center py-4">
+<div class="relative w-48 h-48">
+<!-- Simple SVG Circular Gauge -->
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-obsidian-600" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-accent-gold drop-shadow-[0_0_8px_rgba(212,163,115,0.4)]" cx="96" cy="96" fill="transparent" r="88" stroke="currentColor" stroke-dasharray="552.92" stroke-dashoffset="138.23" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-5xl font-semibold gold-gradient-text">75%</span>
+<span class="micro-copy text-status-success font-bold mt-1">+12% vs last month</span>
+</div>
+</div>
+<p class="mt-8 text-center text-sm text-muted max-w-[200px]">The CS2026 cohort is outperforming the benchmark for <span class="text-accent-soft">Engineering Manager</span> roles.</p>
+</div>
+</section>
+<!-- KPI Quick Stats -->
+<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="glass-panel rounded-2xl p-6 border-l-4 border-accent-gold">
+<p class="micro-copy text-muted font-medium uppercase mb-2">Active Candidates</p>
+<h4 class="text-3xl font-semibold">142</h4>
+<div class="mt-4 flex items-center micro-copy text-muted">
+<span class="bg-accent-gold/10 text-accent-gold px-2 py-1 rounded mr-2">84% Progress</span>
+<span>Moving to Stage 3</span>
+</div>
+</div>
+<div class="glass-panel rounded-2xl p-6 border-l-4 border-obsidian-600">
+<p class="micro-copy text-muted font-medium uppercase mb-2">Skill Gaps Identified</p>
+<h4 class="text-3xl font-semibold">24</h4>
+<div class="mt-4 flex items-center micro-copy text-muted">
+<span class="bg-status-error/10 text-status-error px-2 py-1 rounded mr-2">High Priority</span>
+<span>Strategic Planning Focus</span>
+</div>
+</div>
+<!-- Sub-chart: Cohort Velocity -->
+<div class="md:col-span-2 glass-panel rounded-2xl p-6" data-purpose="cohort-velocity">
+<div class="flex justify-between items-center mb-4">
+<h3 class="micro-copy font-semibold uppercase tracking-wider text-muted">Learning Velocity</h3>
+<div class="flex space-x-2">
+<span class="w-3 h-3 rounded-full bg-accent-gold"></span>
+<span class="w-3 h-3 rounded-full bg-obsidian-600"></span>
+</div>
+</div>
+<div class="h-32 w-full flex items-end space-x-1">
+<div class="flex-1 bg-accent-gold/10 h-1/4 rounded-t-sm border-t border-accent-gold/20"></div>
+<div class="flex-1 bg-accent-gold/20 h-1/2 rounded-t-sm border-t border-accent-gold/30"></div>
+<div class="flex-1 bg-accent-gold/30 h-2/3 rounded-t-sm border-t border-accent-gold/40"></div>
+<div class="flex-1 bg-accent-gold/40 h-3/4 rounded-t-sm border-t border-accent-gold/50"></div>
+<div class="flex-1 bg-accent-gold/50 h-full rounded-t-sm border-t border-accent-gold/60"></div>
+<div class="flex-1 bg-accent-gold/60 h-5/6 rounded-t-sm border-t border-accent-gold/70"></div>
+<div class="flex-1 bg-accent-gold/70 h-3/4 rounded-t-sm border-t border-accent-gold/80"></div>
+<div class="flex-1 bg-accent-gold h-full rounded-t-sm border-t border-accent-gold"></div>
+</div>
+<div class="flex justify-between mt-2 micro-copy text-muted font-medium px-1">
+<span>WEEK 01</span><span>WEEK 04</span><span>WEEK 08</span><span>WEEK 12</span>
+</div>
+</div>
+</div>
+</div>
+<!-- END: Top Row -->
+<!-- BEGIN: Middle Row - Detailed Analytics -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Cohort Analysis: Skill Growth -->
+<section class="lg:col-span-2 glass-panel rounded-2xl p-6" data-purpose="cohort-analysis">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-lg font-semibold">Skill Growth Analysis</h3>
+<p class="micro-copy text-muted">Comparing Baseline vs. Current Proficiency (CS2026)</p>
+</div>
+<div class="flex space-x-4 micro-copy">
+<div class="flex items-center"><span class="w-2 h-2 rounded-full bg-accent-gold mr-2"></span> Current</div>
+<div class="flex items-center"><span class="w-2 h-2 rounded-full bg-obsidian-600 mr-2"></span> Baseline</div>
+</div>
+</div>
+<div class="relative h-64 w-full flex items-end gap-x-2 border-b border-obsidian-600 pb-1">
+<!-- Grid lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-2 pointer-events-none">
+<div class="border-t border-obsidian-600/50 w-full"></div>
+<div class="border-t border-obsidian-600/50 w-full"></div>
+<div class="border-t border-obsidian-600/50 w-full"></div>
+<div class="border-t border-obsidian-600/50 w-full"></div>
+</div>
+<!-- Skill Data -->
+<div class="flex-1 flex flex-col justify-end space-y-1 z-10">
+<div class="w-full bg-accent-gold rounded-sm h-[85%] transition-all hover:brightness-110 cursor-help" title="Strategic Leadership"></div>
+<div class="w-full bg-obsidian-600 rounded-sm h-[40%]"></div>
+<span class="micro-copy text-muted text-center mt-2 truncate">Strategy</span>
+</div>
+<div class="flex-1 flex flex-col justify-end space-y-1 z-10">
+<div class="w-full bg-accent-teal rounded-sm h-[70%] transition-all hover:brightness-110 cursor-help" title="Conflict Mgmt"></div>
+<div class="w-full bg-obsidian-600 rounded-sm h-[30%]"></div>
+<span class="micro-copy text-muted text-center mt-2 truncate">Conflict</span>
+</div>
+<div class="flex-1 flex flex-col justify-end space-y-1 z-10">
+<div class="w-full bg-accent-gold rounded-sm h-[90%] transition-all hover:brightness-110 cursor-help" title="Delegation"></div>
+<div class="w-full bg-obsidian-600 rounded-sm h-[60%]"></div>
+<span class="micro-copy text-muted text-center mt-2 truncate">Delegation</span>
+</div>
+<div class="flex-1 flex flex-col justify-end space-y-1 z-10">
+<div class="w-full bg-accent-teal rounded-sm h-[60%] transition-all hover:brightness-110 cursor-help" title="Budgeting"></div>
+<div class="w-full bg-obsidian-600 rounded-sm h-[55%]"></div>
+<span class="micro-copy text-muted text-center mt-2 truncate">Finance</span>
+</div>
+<div class="flex-1 flex flex-col justify-end space-y-1 z-10">
+<div class="w-full bg-accent-gold rounded-sm h-[75%] transition-all hover:brightness-110 cursor-help" title="Coaching"></div>
+<div class="w-full bg-obsidian-600 rounded-sm h-[20%]"></div>
+<span class="micro-copy text-muted text-center mt-2 truncate">Coaching</span>
+</div>
+<div class="flex-1 flex flex-col justify-end space-y-1 z-10">
+<div class="w-full bg-accent-teal rounded-sm h-[40%] transition-all hover:brightness-110 cursor-help" title="Empathy"></div>
+<div class="w-full bg-obsidian-600 rounded-sm h-[35%]"></div>
+<span class="micro-copy text-muted text-center mt-2 truncate">EQ</span>
+</div>
+</div>
+</section>
+<!-- Top Trending Skills -->
+<section class="glass-panel rounded-2xl p-6" data-purpose="trending-skills">
+<h3 class="text-lg font-semibold mb-6">Trending Skills</h3>
+<div class="space-y-5">
+<!-- Skill Item -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-accent-gold/10 flex items-center justify-center text-accent-gold group-hover:bg-accent-gold group-hover:text-obsidian-900 transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<p class="text-sm font-semibold">Strategic Thinking</p>
+<p class="micro-copy text-muted">Critical Gap Closed</p>
+</div>
+</div>
+<div class="text-right">
+<span class="micro-copy font-bold text-accent-soft">High Impact</span>
+</div>
+</div>
+<!-- Skill Item -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-obsidian-600 flex items-center justify-center text-muted group-hover:bg-accent-gold group-hover:text-obsidian-900 transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<p class="text-sm font-semibold">Crisis Comms</p>
+<p class="micro-copy text-muted">Emerging Trend</p>
+</div>
+</div>
+<div class="text-right">
+<span class="micro-copy font-bold text-muted">Medium</span>
+</div>
+</div>
+<!-- Skill Item -->
+<div class="flex items-center justify-between group cursor-pointer">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded bg-obsidian-600 flex items-center justify-center text-muted group-hover:bg-accent-gold group-hover:text-obsidian-900 transition-colors">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<p class="text-sm font-semibold">Change Leadership</p>
+<p class="micro-copy text-muted">Top Req. Competency</p>
+</div>
+</div>
+<div class="text-right">
+<span class="micro-copy font-bold text-accent-soft">Critical</span>
+</div>
+</div>
+<!-- View All CTA -->
+<a class="block text-center micro-copy font-bold text-accent-gold hover:text-accent-soft uppercase tracking-widest pt-4 transition-colors" href="#">
+                            View Full Skills Matrix →
+                        </a>
+</div>
+</section>
+</div>
+<!-- END: Middle Row -->
+<!-- BEGIN: Actionable Insight Panel -->
+<section class="bg-obsidian-800 rounded-2xl p-8 border border-accent-gold/20 shadow-xl relative overflow-hidden">
+<div class="absolute right-0 top-0 h-full w-1/3 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none"></div>
+<div class="flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+<div class="max-w-2xl">
+<div class="flex items-center space-x-2 mb-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-soft opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-accent-gold"></span>
+</span>
+<span class="text-accent-gold micro-copy font-bold uppercase tracking-widest">AI Recommendation</span>
+</div>
+<h3 class="text-2xl font-semibold mb-4 italic text-[#F1F5F9]">Next Step: High-Potential Mentorship Program</h3>
+<p class="text-muted leading-relaxed">Based on current trajectory, 18 candidates in the CS2026 cohort will reach "Full Readiness" 4 months ahead of schedule. We recommend initiating the Shadow Assignment phase to capitalize on this momentum.</p>
+</div>
+<div class="shrink-0">
+<button class="px-8 py-4 bg-transparent border-2 border-accent-gold text-accent-gold font-bold rounded-full hover:bg-accent-gold hover:text-obsidian-900 transition-all transform hover:scale-105 active:scale-95 focus:ring-2 focus:ring-accent-gold focus:ring-offset-2 focus:ring-offset-obsidian-900">
+                            Approve Deployment Plan
+                        </button>
+</div>
+</div>
+</section>
+<!-- END: Actionable Insight Panel -->
+</div>
+</main>
+</div>
+<!-- END: AppShell Layout -->
+</body></html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D4A373", // Gold Accent
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#121212", // Obsidian Base
+                        "surface": "#1C1C1C",
+                        "card-bg": "#232323",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(35, 35, 35, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 163, 115, 0.1);
+        }
+        .active-nav {
+            background: linear-gradient(90deg, rgba(212, 163, 115, 0.15) 0%, rgba(212, 163, 115, 0) 100%);
+            border-left: 3px solid #D4A373;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="flex h-screen overflow-hidden">
+<!-- Side Navigation -->
+<aside class="w-64 flex-shrink-0 bg-surface border-r border-primary/10 flex flex-col justify-between p-4">
+<div class="flex flex-col gap-8">
+<div class="flex items-center gap-3 px-2">
+<div class="bg-primary/20 p-2 rounded-lg">
+<span class="material-symbols-outlined text-primary">shield_person</span>
+</div>
+<div>
+<h1 class="text-sm font-bold tracking-wider uppercase text-primary">Obsidian</h1>
+<p class="text-[10px] text-slate-500 font-medium">GOLD EDITION v2.0</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg active-nav text-primary" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span class="text-sm font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors text-slate-400" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span>
+<span class="text-sm font-medium">Students</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors text-slate-400" href="#">
+<span class="material-symbols-outlined text-[20px]">military_tech</span>
+<span class="text-sm font-medium">Skills</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors text-slate-400" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span>
+<span class="text-sm font-medium">Activities</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-white/5 transition-colors text-slate-400" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm font-medium">Settings</span>
+</a>
+</nav>
+</div>
+<div class="flex items-center gap-3 p-3 glass-panel rounded-xl">
+<div class="size-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Admin user profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeFHpFP44zH4Wi01aVmrVafIGvOLYfZ-TNUiqedYKLeuzCrj6GXosQmX9KGTUmgx6Ap003YuQc8-jCr5aBr5j2nV2-9-XvBEhKX4aDqZ61Z5lfT4bO8HSofUnpJQHQjmAIALIE05sQ_70R1qtbS5crN81dW6neXZUt4h3sp9-B_Jhfjt8vLGw_IeTd9ft6S44eZ_c5rUao_zA00aRExEim9BBLzY_ilMsJ39wGxp2sotqlqITzOKY19vayrrYduyykmQLJoILNsxA"/>
+</div>
+<div class="flex flex-col">
+<p class="text-xs font-bold">Alex Thorne</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-tighter">System Architect</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- Top Header -->
+<header class="flex items-center justify-between px-8 py-4 bg-surface/50 border-b border-primary/10 backdrop-blur-md sticky top-0 z-10">
+<div class="flex items-center gap-6 flex-1">
+<h2 class="text-lg font-bold text-slate-100">Admin Control Panel</h2>
+<div class="relative max-w-md w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-[20px]">search</span>
+<input class="w-full bg-card-bg border-none rounded-xl pl-10 pr-4 py-2 text-sm text-slate-300 focus:ring-1 focus:ring-primary/50 transition-all placeholder:text-slate-600" placeholder="Search analytics, users or reports..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 px-4 py-2 rounded-xl text-sm font-semibold transition-all">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Export CSV
+                    </button>
+<div class="h-8 w-[1px] bg-primary/10 mx-2"></div>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border border-surface"></span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 space-y-8">
+<!-- Metrics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-card-bg rounded-xl p-6 border border-primary/5 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl text-primary">group</span>
+</div>
+<p class="text-slate-400 text-sm font-medium">Total Students</p>
+<div class="flex items-end gap-3 mt-2">
+<h3 class="text-3xl font-bold text-white">12,480</h3>
+<span class="text-emerald-500 text-xs font-bold mb-1 flex items-center">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+6%
+                            </span>
+</div>
+</div>
+<div class="bg-card-bg rounded-xl p-6 border border-primary/5 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl text-primary">military_tech</span>
+</div>
+<p class="text-slate-400 text-sm font-medium">Verified Skills</p>
+<div class="flex items-end gap-3 mt-2">
+<h3 class="text-3xl font-bold text-white">54,320</h3>
+<span class="text-emerald-500 text-xs font-bold mb-1 flex items-center">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+11%
+                            </span>
+</div>
+</div>
+<div class="bg-card-bg rounded-xl p-6 border border-primary/5 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl text-primary">description</span>
+</div>
+<p class="text-slate-400 text-sm font-medium">Activities Submitted</p>
+<div class="flex items-end gap-3 mt-2">
+<h3 class="text-3xl font-bold text-white">8,934</h3>
+<span class="text-emerald-500 text-xs font-bold mb-1 flex items-center">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+9%
+                            </span>
+</div>
+</div>
+<div class="bg-card-bg rounded-xl p-6 border border-primary/5 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-8xl text-primary">work_outline</span>
+</div>
+<p class="text-slate-400 text-sm font-medium">Placement Ready</p>
+<div class="flex items-end gap-3 mt-2">
+<h3 class="text-3xl font-bold text-white">3,218</h3>
+<span class="text-emerald-500 text-xs font-bold mb-1 flex items-center">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>+4%
+                            </span>
+</div>
+</div>
+</div>
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Large Line Chart -->
+<div class="lg:col-span-2 bg-card-bg rounded-xl p-8 border border-primary/5">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h4 class="text-white text-lg font-bold">Student Growth Trends</h4>
+<p class="text-slate-500 text-xs">Platform expansion over the last 6 months</p>
+</div>
+<div class="flex gap-2">
+<div class="bg-surface px-3 py-1 rounded-lg text-[10px] border border-primary/20 text-primary font-bold">JAN - JUN 2024</div>
+</div>
+</div>
+<div class="h-[300px] w-full relative">
+<!-- SVG Chart Simulation -->
+<svg class="w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 1000 300">
+<defs>
+<lineargradient id="gradient-line" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#D4A373" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#D4A373" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- Area -->
+<path d="M0,220 C150,210 250,150 400,160 C550,170 700,80 850,70 L1000,40 L1000,300 L0,300 Z" fill="url(#gradient-line)"></path>
+<!-- Line -->
+<path d="M0,220 C150,210 250,150 400,160 C550,170 700,80 850,70 L1000,40" fill="none" stroke="#D4A373" stroke-linecap="round" stroke-width="4"></path>
+<!-- Points -->
+<circle cx="400" cy="160" fill="#121212" r="5" stroke="#D4A373" stroke-width="2"></circle>
+<circle cx="850" cy="70" fill="#121212" r="5" stroke="#D4A373" stroke-width="2"></circle>
+<circle cx="1000" cy="40" fill="#D4A373" r="6"></circle>
+</svg>
+<!-- Labels -->
+<div class="flex justify-between mt-4 text-[11px] text-slate-500 font-bold uppercase tracking-widest px-1">
+<span>Jan</span>
+<span>Feb</span>
+<span>Mar</span>
+<span>Apr</span>
+<span>May</span>
+<span>Jun</span>
+</div>
+</div>
+</div>
+<!-- System Health Panel -->
+<div class="bg-card-bg rounded-xl p-8 border border-primary/5 flex flex-col h-full">
+<div class="flex items-center gap-2 mb-8">
+<span class="material-symbols-outlined text-primary">sensors</span>
+<h4 class="text-white text-lg font-bold">System Health</h4>
+</div>
+<div class="space-y-6 flex-1">
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-slate-400">API Uptime</span>
+<span class="text-primary font-bold">99.9%</span>
+</div>
+<div class="h-2 w-full bg-surface rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 99.9%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-slate-400">Active Users</span>
+<span class="text-primary font-bold">4,231</span>
+</div>
+<div class="h-2 w-full bg-surface rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full opacity-60" style="width: 75%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-slate-400">Server Load</span>
+<span class="text-primary font-bold">62%</span>
+</div>
+<div class="h-2 w-full bg-surface rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full opacity-40" style="width: 62%"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-primary/10 flex items-center justify-between">
+<span class="text-[10px] text-slate-500 uppercase tracking-widest">Last backup: 2m ago</span>
+<div class="flex items-center gap-1">
+<div class="size-2 rounded-full bg-emerald-500"></div>
+<span class="text-[10px] text-emerald-500 font-bold uppercase">Stable</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Row -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-8">
+<!-- Bar Chart: Cohort Performance -->
+<div class="bg-card-bg rounded-xl p-8 border border-primary/5">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h4 class="text-white text-lg font-bold">Cohort Performance</h4>
+<p class="text-slate-500 text-xs">Success rate per active training cohort</p>
+</div>
+<div class="text-right">
+<span class="text-2xl font-bold text-white">88%</span>
+<p class="text-[10px] text-emerald-500 font-bold uppercase tracking-widest">+2.1% Avg</p>
+</div>
+</div>
+<div class="flex items-end justify-between h-[200px] gap-4 px-4">
+<div class="group flex flex-col items-center gap-3 flex-1">
+<div class="w-full bg-primary/20 hover:bg-primary/40 rounded-t-lg transition-all" style="height: 70%"></div>
+<span class="text-[10px] text-slate-500 font-bold">C1</span>
+</div>
+<div class="group flex flex-col items-center gap-3 flex-1">
+<div class="w-full bg-primary/20 hover:bg-primary/40 rounded-t-lg transition-all" style="height: 45%"></div>
+<span class="text-[10px] text-slate-500 font-bold">C2</span>
+</div>
+<div class="group flex flex-col items-center gap-3 flex-1">
+<div class="w-full bg-primary rounded-t-lg shadow-[0_-4px_12px_rgba(212,163,115,0.3)] transition-all" style="height: 92%"></div>
+<span class="text-[10px] text-primary font-bold">C3</span>
+</div>
+<div class="group flex flex-col items-center gap-3 flex-1">
+<div class="w-full bg-primary/20 hover:bg-primary/40 rounded-t-lg transition-all" style="height: 60%"></div>
+<span class="text-[10px] text-slate-500 font-bold">C4</span>
+</div>
+<div class="group flex flex-col items-center gap-3 flex-1">
+<div class="w-full bg-primary/20 hover:bg-primary/40 rounded-t-lg transition-all" style="height: 85%"></div>
+<span class="text-[10px] text-slate-500 font-bold">C5</span>
+</div>
+<div class="group flex flex-col items-center gap-3 flex-1">
+<div class="w-full bg-primary/20 hover:bg-primary/40 rounded-t-lg transition-all" style="height: 78%"></div>
+<span class="text-[10px] text-slate-500 font-bold">C6</span>
+</div>
+</div>
+</div>
+<!-- Recent Activities (Extra Context) -->
+<div class="bg-card-bg rounded-xl p-8 border border-primary/5">
+<div class="flex items-center justify-between mb-8">
+<h4 class="text-white text-lg font-bold">Platform Activity</h4>
+<button class="text-[10px] text-primary font-bold uppercase tracking-widest hover:underline">View All Logs</button>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="size-2 rounded-full bg-primary"></div>
+<div class="flex-1">
+<p class="text-sm text-slate-300">New batch of <span class="text-white font-bold">150 students</span> onboarded to <span class="text-primary font-medium">Cohort 7</span></p>
+<p class="text-[10px] text-slate-600 mt-0.5">Today, 10:42 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-2 rounded-full bg-slate-700"></div>
+<div class="flex-1">
+<p class="text-sm text-slate-300">Skills verification module updated to <span class="text-white font-bold">v3.1.2</span></p>
+<p class="text-[10px] text-slate-600 mt-0.5">Today, 09:15 AM</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-2 rounded-full bg-primary"></div>
+<div class="flex-1">
+<p class="text-sm text-slate-300"><span class="text-white font-bold">24 Placement interviews</span> scheduled for next week</p>
+<p class="text-[10px] text-slate-600 mt-0.5">Yesterday, 04:30 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="size-2 rounded-full bg-slate-700"></div>
+<div class="flex-1">
+<p class="text-sm text-slate-300">System maintenance completed successfully</p>
+<p class="text-[10px] text-slate-600 mt-0.5">Yesterday, 02:00 AM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

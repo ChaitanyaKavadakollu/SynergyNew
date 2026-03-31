@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synergy Admin | Moderation &amp; Users</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Poppins:wght@300;400&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                obsidian: {
+                  DEFAULT: '#121212',
+                  surface: '#1C1C1C',
+                  card: '#232323',
+                  border: '#2A2A2A'
+                },
+                gold: {
+                  DEFAULT: '#D4A373',
+                  deep: '#B08968',
+                  soft: '#E9C46A',
+                  teal: '#6B9080'
+                },
+                slate: {
+                  text: '#F1F5F9',
+                  muted: '#94A3B8'
+                },
+                status: {
+                  success: '#38B000',
+                  error: '#EF4444',
+                  info: '#60A5FA'
+                }
+              },
+              fontFamily: {
+                sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                micro: ['Poppins', 'sans-serif'],
+              }
+            }
+          }
+        }
+    </script>
+<style data-purpose="scrollbar-styling">
+        ::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #121212;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #D4A373;
+          border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #E9C46A;
+        }
+    </style>
+<style data-purpose="layout-utility">
+        .glass-panel {
+          background: #232323;
+          border: 1px solid #2A2A2A;
+        }
+        .focus-ring:focus {
+          outline: 2px solid #D4A373;
+          outline-offset: 2px;
+        }
+        .micro-copy {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-slate-text font-sans antialiased min-h-screen text-[16px]">
+<!-- BEGIN: AppShell -->
+<div class="flex h-screen overflow-hidden">
+<!-- BEGIN: Sidebar Navigation -->
+<aside class="w-64 bg-obsidian-surface border-r border-obsidian-border flex flex-col hidden md:flex">
+<div class="p-6">
+<div class="text-gold font-semibold text-2xl tracking-tighter flex items-center gap-2">
+<div class="w-8 h-8 bg-gold rounded flex items-center justify-center text-obsidian font-bold">S</div>
+          SYNERGY
+        </div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-muted hover:text-gold hover:bg-obsidian-card rounded-lg transition-all duration-200" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-obsidian-card text-gold border-l-2 border-gold rounded-r-lg" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Moderation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-muted hover:text-gold hover:bg-obsidian-card rounded-lg transition-all duration-200" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-muted hover:text-gold hover:bg-obsidian-card rounded-lg transition-all duration-200" href="#">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-obsidian-border">
+<div class="flex items-center gap-3 px-2">
+<div class="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center text-gold border border-gold/20 font-semibold">JD</div>
+<div>
+<div class="text-sm font-semibold text-slate-text">John Doe</div>
+<div class="text-xs text-slate-muted micro-copy">Super Admin</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- END: Sidebar Navigation -->
+<!-- BEGIN: Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden bg-obsidian">
+<!-- BEGIN: Header -->
+<header class="h-16 border-b border-obsidian-border flex items-center justify-between px-8 bg-obsidian-surface/50 backdrop-blur-md">
+<h1 class="text-lg font-semibold text-slate-text uppercase tracking-[0.2em]">Admin Control Panel</h1>
+<div class="flex items-center gap-4">
+<div class="relative">
+<input class="bg-obsidian-card border-obsidian-border rounded-lg py-2 px-4 text-sm focus:ring-1 focus:ring-gold focus:border-gold w-64 text-slate-text micro-copy placeholder-slate-muted" placeholder="Global Search..." type="text"/>
+</div>
+<button class="relative p-2 text-slate-muted hover:text-gold focus-ring rounded-full transition-colors">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-gold-soft rounded-full"></span>
+</button>
+</div>
+</header>
+<!-- END: Header -->
+<!-- BEGIN: Dashboard Grid -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- BEGIN: User Management Section -->
+<section data-purpose="user-management">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-sm font-semibold text-gold uppercase tracking-wider">User Directory</h2>
+<div class="flex gap-2">
+<button class="bg-gold hover:bg-gold-soft text-obsidian px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-lg shadow-gold/10">Export CSV</button>
+</div>
+</div>
+<div class="glass-panel rounded-xl overflow-hidden shadow-2xl">
+<table class="w-full text-left text-sm">
+<thead class="bg-obsidian-surface border-b border-obsidian-border">
+<tr class="micro-copy">
+<th class="px-6 py-4 font-semibold text-slate-muted uppercase tracking-wider">User</th>
+<th class="px-6 py-4 font-semibold text-slate-muted uppercase tracking-wider">Role</th>
+<th class="px-6 py-4 font-semibold text-slate-muted uppercase tracking-wider">Status</th>
+<th class="px-6 py-4 font-semibold text-slate-muted uppercase tracking-wider">Account Created</th>
+<th class="px-6 py-4 font-semibold text-slate-muted uppercase tracking-wider text-right">Audit Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-obsidian-border">
+<!-- User Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-obsidian-card border border-obsidian-border flex items-center justify-center text-xs font-bold text-gold-soft">AV</div>
+<div>
+<div class="font-medium text-slate-text">Alex Vance</div>
+<div class="text-xs text-slate-muted micro-copy">alex.v@domain.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-gold-teal/10 text-gold-teal border border-gold-teal/20 px-2 py-0.5 rounded text-[10px] uppercase font-bold micro-copy">Contributor</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-status-success micro-copy font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-status-success shadow-[0_0_8px_rgba(56,176,0,0.5)]"></span> Active
+                    </span>
+</td>
+<td class="px-6 py-4 text-slate-muted micro-copy">Oct 12, 2023</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-2 py-1 bg-obsidian-card text-gold hover:text-gold-soft border border-obsidian-border rounded micro-copy font-semibold transition-colors focus-ring">Warn</button>
+<button class="px-2 py-1 bg-obsidian-card text-slate-muted hover:text-gold border border-obsidian-border rounded micro-copy font-semibold transition-colors focus-ring">Suspend</button>
+<button class="px-2 py-1 bg-obsidian-card text-status-error/80 hover:text-status-error border border-status-error/20 rounded micro-copy font-semibold transition-colors focus-ring">Ban</button>
+</div>
+</td>
+</tr>
+<!-- User Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-obsidian-card border border-obsidian-border flex items-center justify-center text-xs font-bold text-gold-soft">SM</div>
+<div>
+<div class="font-medium text-slate-text">Sarah Miller</div>
+<div class="text-xs text-slate-muted micro-copy">s.miller@domain.com</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-gold/10 text-gold border border-gold/20 px-2 py-0.5 rounded text-[10px] uppercase font-bold micro-copy">Editor</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-slate-muted micro-copy font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-muted"></span> Offline
+                    </span>
+</td>
+<td class="px-6 py-4 text-slate-muted micro-copy">Jan 05, 2024</td>
+<td class="px-6 py-4 text-right">
+<div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="px-2 py-1 bg-obsidian-card text-gold border border-obsidian-border rounded micro-copy font-semibold transition-colors">Warn</button>
+<button class="px-2 py-1 bg-obsidian-card text-slate-muted border border-obsidian-border rounded micro-copy font-semibold transition-colors">Suspend</button>
+<button class="px-2 py-1 bg-obsidian-card text-status-error/80 border border-status-error/20 rounded micro-copy font-semibold transition-colors">Ban</button>
+</div>
+</td>
+</tr>
+<!-- User Row 3 (Banned) -->
+<tr class="hover:bg-white/5 transition-colors group bg-status-error/5">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-status-error/10 border border-status-error/20 flex items-center justify-center text-xs font-bold text-status-error">UK</div>
+<div>
+<div class="font-medium text-slate-text">Unknown Entity</div>
+<div class="text-xs text-slate-muted micro-copy">bot-455@proxy.net</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="bg-slate-muted/10 text-slate-muted border border-slate-muted/20 px-2 py-0.5 rounded text-[10px] uppercase font-bold micro-copy">User</span>
+</td>
+<td class="px-6 py-4">
+<span class="flex items-center gap-1.5 text-status-error font-bold italic micro-copy">
+<span class="w-1.5 h-1.5 rounded-full bg-status-error"></span> BANNED
+                    </span>
+</td>
+<td class="px-6 py-4 text-slate-muted micro-copy">Feb 14, 2024</td>
+<td class="px-6 py-4 text-right">
+<button class="text-xs text-gold underline hover:text-gold-soft micro-copy transition-colors focus-ring">Reinstatement Request</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- END: User Management Section -->
+<!-- BEGIN: Moderation & Audit Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<!-- BEGIN: Moderation Queue -->
+<section class="flex flex-col" data-purpose="moderation-queue">
+<h2 class="text-sm font-semibold text-gold uppercase tracking-wider mb-4">Moderation Queue</h2>
+<div class="glass-panel rounded-xl flex-1 divide-y divide-obsidian-border shadow-2xl">
+<!-- Item 1 -->
+<div class="p-5 hover:bg-white/5 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="bg-status-error text-obsidian text-[9px] font-bold px-1.5 py-0.5 rounded uppercase micro-copy">Critical</span>
+<span class="text-sm font-semibold text-slate-text underline decoration-gold/30 hover:decoration-gold transition-all cursor-pointer">Post #8842-X</span>
+</div>
+<span class="text-[10px] text-slate-muted micro-copy">2 mins ago</span>
+</div>
+<p class="text-sm text-slate-muted mb-4 italic leading-relaxed">"Flagged for potential hate speech detected via automated NLP filter."</p>
+<div class="flex gap-2">
+<button class="bg-status-success/10 text-status-success border border-status-success/20 px-3 py-1 rounded text-xs font-semibold hover:bg-status-success/20 transition-colors micro-copy">Dismiss</button>
+<button class="bg-status-error/10 text-status-error border border-status-error/20 px-3 py-1 rounded text-xs font-semibold hover:bg-status-error/20 transition-colors micro-copy">Remove Content</button>
+<button class="ml-auto text-xs text-slate-muted hover:text-gold micro-copy transition-colors">Details →</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-5 hover:bg-white/5 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="bg-gold-soft text-obsidian text-[9px] font-bold px-1.5 py-0.5 rounded uppercase micro-copy">Medium</span>
+<span class="text-sm font-semibold text-slate-text underline decoration-gold/30 hover:decoration-gold transition-all cursor-pointer">User Profile: 'Z0neR'</span>
+</div>
+<span class="text-[10px] text-slate-muted micro-copy">14 mins ago</span>
+</div>
+<p class="text-sm text-slate-muted mb-4 italic leading-relaxed">"Inappropriate avatar image detected by computer vision scan."</p>
+<div class="flex gap-2">
+<button class="bg-status-success/10 text-status-success border border-status-success/20 px-3 py-1 rounded text-xs font-semibold hover:bg-status-success/20 micro-copy">Approve</button>
+<button class="bg-gold/10 text-gold border border-gold/20 px-3 py-1 rounded text-xs font-semibold hover:bg-gold/20 micro-copy">Request Change</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-5 hover:bg-white/5 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="bg-status-info text-obsidian text-[9px] font-bold px-1.5 py-0.5 rounded uppercase micro-copy">Info</span>
+<span class="text-sm font-semibold text-slate-text underline decoration-gold/30 hover:decoration-gold transition-all cursor-pointer">System Trigger: Massive Login</span>
+</div>
+<span class="text-[10px] text-slate-muted micro-copy">1 hour ago</span>
+</div>
+<p class="text-sm text-slate-muted mb-4 leading-relaxed">Detected 50+ failed login attempts from IP 192.168.1.1 (Stockholm, SE).</p>
+<div class="flex gap-2">
+<button class="bg-obsidian-surface text-slate-text border border-obsidian-border px-3 py-1 rounded text-xs font-semibold hover:bg-obsidian-border micro-copy">Shadowban IP</button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Moderation Queue -->
+<!-- BEGIN: System Audit Logs -->
+<section class="flex flex-col" data-purpose="audit-logs">
+<h2 class="text-sm font-semibold text-gold uppercase tracking-wider mb-4">System Audit Logs</h2>
+<div class="glass-panel rounded-xl flex-1 bg-obsidian-surface/60 overflow-hidden flex flex-col shadow-2xl">
+<div class="bg-obsidian-border/20 p-2 flex gap-2 border-b border-obsidian-border items-center">
+<div class="w-2.5 h-2.5 rounded-full bg-status-error/60"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-gold-soft/60"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-status-success/60"></div>
+<span class="text-[9px] text-slate-muted uppercase font-mono ml-2 tracking-widest">Terminal-Log: v1.0.4-synergy</span>
+</div>
+<div class="p-4 font-mono text-[11px] space-y-2 overflow-y-auto max-h-[400px]" id="log-container">
+<div class="flex gap-4">
+<span class="text-gold-soft/80">[14:22:01]</span>
+<span class="text-status-info font-bold">INFO:</span>
+<span class="text-slate-text/90">Admin 'JohnDoe' accessed user settings for 'Alex Vance'.</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gold-soft/80">[14:21:45]</span>
+<span class="text-status-error font-bold">WARN:</span>
+<span class="text-slate-text/90">Potential Brute Force detected on Endpoint: /api/v1/login</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gold-soft/80">[14:19:30]</span>
+<span class="text-status-success font-bold">SYS:</span>
+<span class="text-slate-text/90">Automated daily backup completed successfully. (2.4GB)</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gold-soft/80">[14:15:12]</span>
+<span class="text-status-info font-bold">INFO:</span>
+<span class="text-slate-text/90">New user registration: ID-88992 (Region: NA-EAST)</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gold-soft/80">[14:10:05]</span>
+<span class="text-status-error font-bold">WARN:</span>
+<span class="text-slate-text/90">Database connection latency spike: 340ms detected.</span>
+</div>
+<div class="flex gap-4">
+<span class="text-gold-soft/80">[14:05:00]</span>
+<span class="text-slate-muted">HEARTBEAT:</span>
+<span class="text-slate-muted/60">Microservice cluster health: 99.9%</span>
+</div>
+<div class="flex gap-4 animate-pulse">
+<span class="text-gold-soft/80">[14:22:30]</span>
+<span class="text-gold font-bold">POLL:</span>
+<span class="text-slate-text">Syncing with global CDN nodes...</span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: System Audit Logs -->
+</div>
+<!-- END: Dashboard Grid -->
+</div>
+<!-- END: Dashboard Grid -->
+</main>
+<!-- END: Main Content Area -->
+</div>
+<!-- END: AppShell -->
+<script data-purpose="simulated-real-time-logs">
+    // Simple script to auto-scroll logs to bottom for "real-time" feel
+    const logContainer = document.getElementById('log-container');
+    if (logContainer) {
+      logContainer.scrollTop = logContainer.scrollHeight;
+      
+      // Add a fake log every 10 seconds
+      setInterval(() => {
+        const time = new Date().toLocaleTimeString('en-GB', { hour12: false });
+        const newLog = document.createElement('div');
+        newLog.className = 'flex gap-4';
+        newLog.innerHTML = `
+          <span class="text-gold-soft/80">[${time}]</span>
+          <span class="text-status-info font-bold">INFO:</span>
+          <span class="text-slate-text/90">Pulse check completed. System status: Optimal.</span>
+        `;
+        logContainer.appendChild(newLog);
+        logContainer.scrollTop = logContainer.scrollHeight;
+      }, 10000);
+    }
+  </script>
+</body></html>

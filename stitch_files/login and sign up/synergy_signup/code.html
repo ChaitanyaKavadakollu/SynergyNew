@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#D4A373", // Gold Accent
+                        "primary-soft": "#E9C46A",
+                        "primary-deep": "#B08968",
+                        "secondary": "#6B9080", // Teal Accent
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#121212", // Obsidian
+                        "surface": "#1C1C1C",
+                        "card-bg": "#232323",
+                        "muted-text": "#94A3B8",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .abstract-gradient {
+            background: radial-gradient(circle at 20% 30%, rgba(212, 163, 115, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(107, 144, 128, 0.08) 0%, transparent 40%);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-6 abstract-gradient">
+<div class="w-full max-w-[520px]">
+<!-- Logo Section -->
+<div class="flex flex-col items-center mb-8">
+<div class="flex items-center gap-3 mb-2">
+<div class="p-2 bg-primary/10 rounded-xl border border-primary/20">
+<span class="material-symbols-outlined text-primary text-3xl">hub</span>
+</div>
+<h1 class="text-2xl font-black tracking-tight text-slate-900 dark:text-slate-100">Synergy</h1>
+</div>
+<p class="text-muted-text text-sm">Join the ecosystem of elite professionals</p>
+</div>
+<!-- Main Card -->
+<div class="bg-white dark:bg-card-bg rounded-2xl p-8 shadow-2xl border border-slate-200 dark:border-white/5">
+<h2 class="text-2xl font-bold mb-6 text-slate-900 dark:text-slate-100">Create your account</h2>
+<form class="space-y-5">
+<!-- Name Field -->
+<div class="space-y-1.5">
+<label class="text-sm font-medium dark:text-slate-300">Full Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted-text text-xl">person</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-xl border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-surface focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all dark:text-white" placeholder="John Doe" type="text"/>
+</div>
+</div>
+<!-- Email Field -->
+<div class="space-y-1.5">
+<label class="text-sm font-medium dark:text-slate-300">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-muted-text text-xl">mail</span>
+<input class="w-full pl-10 pr-4 py-3 rounded-xl border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-surface focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all dark:text-white" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Password -->
+<div class="space-y-1.5">
+<label class="text-sm font-medium dark:text-slate-300">Password</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-xl border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-surface focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all dark:text-white" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Confirm Password -->
+<div class="space-y-1.5">
+<label class="text-sm font-medium dark:text-slate-300">Confirm Password</label>
+<div class="relative">
+<input class="w-full px-4 py-3 rounded-xl border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-surface focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all dark:text-white" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Role Selection -->
+<div class="space-y-1.5">
+<label class="text-sm font-medium dark:text-slate-300">Role</label>
+<select class="w-full px-4 py-3 rounded-xl border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-surface focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all dark:text-white appearance-none">
+<option>Student</option>
+<option>Faculty</option>
+<option>Recruiter</option>
+<option>Admin</option>
+</select>
+</div>
+<!-- Department -->
+<div class="space-y-1.5">
+<label class="text-sm font-medium dark:text-slate-300">Department</label>
+<input class="w-full px-4 py-3 rounded-xl border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-surface focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all dark:text-white" placeholder="Engineering" type="text"/>
+</div>
+</div>
+<!-- Terms -->
+<div class="flex items-start gap-3 py-2">
+<input class="mt-1 rounded border-slate-300 dark:border-white/10 bg-slate-50 dark:bg-surface text-primary focus:ring-primary" id="terms" type="checkbox"/>
+<label class="text-sm text-muted-text leading-tight" for="terms">
+                        I agree to the <a class="text-primary hover:text-primary-soft underline underline-offset-4" href="#">Terms of Service</a> and <a class="text-primary hover:text-primary-soft underline underline-offset-4" href="#">Privacy Policy</a>.
+                    </label>
+</div>
+<!-- Action Button -->
+<button class="w-full bg-primary hover:bg-primary-soft text-background-dark font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20 flex items-center justify-center gap-2 group" type="submit">
+                    Create Account
+                    <span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<!-- Divider -->
+<div class="relative flex items-center py-4">
+<div class="flex-grow border-t border-slate-200 dark:border-white/10"></div>
+<span class="flex-shrink mx-4 text-muted-text text-xs uppercase tracking-widest">Or sign up with</span>
+<div class="flex-grow border-t border-slate-200 dark:border-white/10"></div>
+</div>
+<!-- Social Buttons -->
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 px-4 py-3 border border-slate-200 dark:border-white/10 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all" type="button">
+<img alt="Google logo" class="w-5 h-5" data-alt="Google colorful brand icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwGp7uw5sLq2mq1mAiCrRtrzWMavayaIZJPPn_K_rtLT-OoH5K5LjLpC0K2eDPlY2CV3ujfSQxtw4uJ367SCUUebfQKcqlw2XQ_aNBZ5If7ATgEq5jDnvQlTuKH5re4S1GLAuatghWt3eiCZXMe2ZV7Q52j4y9KIMA8scMdBoAs9wA3H7gqvjWJYZzsFQVFqGAXfkTPEhlNGrZaq-JsI8C9eYhTGToZ5hRs9fKF_LxGYkB_xcljFAKm13Hmte1gd2eZO4tSQkq12o"/>
+<span class="text-sm font-medium">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 px-4 py-3 border border-slate-200 dark:border-white/10 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all" type="button">
+<svg class="w-5 h-5 fill-slate-900 dark:fill-white" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+<span class="text-sm font-medium">GitHub</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Footer -->
+<div class="mt-8 text-center">
+<p class="text-muted-text text-sm">
+                Already have an account? 
+                <a class="text-primary font-bold hover:text-primary-soft transition-colors ml-1" href="#">Sign in</a>
+</p>
+</div>
+</div>
+</body></html>

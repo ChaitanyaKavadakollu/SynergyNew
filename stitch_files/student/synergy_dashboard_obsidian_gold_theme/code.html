@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-[#121212]" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synergy | Student Dashboard</title>
+<!-- BEGIN: Google Fonts - Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- END: Google Fonts -->
+<!-- BEGIN: Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- END: Tailwind CDN -->
+<!-- BEGIN: Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            obsidian: {
+              primary: '#121212',
+              surface: '#1C1C1C',
+              card: '#232323',
+            },
+            accent: {
+              DEFAULT: '#D4A373',
+              deep: '#B08968',
+              soft: '#E9C46A',
+              secondary: '#6B9080',
+            },
+            ui: {
+              text: '#F1F5F9',
+              muted: '#94A3B8',
+              success: '#38B000',
+              error: '#EF4444',
+              info: '#60A5FA',
+            }
+          },
+          spacing: {
+            'unit': '8px',
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind Configuration -->
+<style data-purpose="custom-scrollbar">
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #121212;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #232323;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D4A373;
+    }
+  </style>
+<style data-purpose="theme-overrides">
+    body {
+      font-size: 16px;
+      color: #F1F5F9;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600 !important;
+    }
+    .accent-gradient-text {
+      background: linear-gradient(to right, #D4A373, #E9C46A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="h-full text-ui-text font-sans antialiased">
+<!-- BEGIN: AppShell Container -->
+<div class="flex h-screen overflow-hidden">
+<!-- BEGIN: Side Navigation -->
+<aside class="w-64 bg-obsidian-primary border-r border-obsidian-surface flex-shrink-0 transition-all duration-300" data-purpose="sidebar" id="sidebar">
+<div class="h-full flex flex-col">
+<!-- Logo Section -->
+<div class="h-16 flex items-center px-6 border-b border-obsidian-surface">
+<div class="w-8 h-8 bg-accent rounded flex items-center justify-center mr-3">
+<span class="text-obsidian-primary font-bold">S</span>
+</div>
+<span class="text-xl font-bold tracking-tight accent-gradient-text">SYNERGY</span>
+</div>
+<!-- Nav Links -->
+<nav class="flex-1 px-4 py-6 space-y-1 overflow-y-auto">
+<a class="flex items-center px-4 py-3 bg-obsidian-surface text-accent rounded-lg group" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 text-ui-muted hover:bg-obsidian-card hover:text-ui-text rounded-lg transition-colors group" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Skill Ledger</span>
+</a>
+<a class="flex items-center px-4 py-3 text-ui-muted hover:bg-obsidian-card hover:text-ui-text rounded-lg transition-colors group" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Mentors</span>
+</a>
+<a class="flex items-center px-4 py-3 text-ui-muted hover:bg-obsidian-card hover:text-ui-text rounded-lg transition-colors group" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-medium">Activity</span>
+</a>
+</nav>
+<!-- Profile Mini -->
+<div class="p-4 border-t border-obsidian-surface bg-obsidian-card/30">
+<div class="flex items-center">
+<div class="w-8 h-8 rounded-full bg-obsidian-card border border-accent/20 overflow-hidden flex-shrink-0">
+<img alt="Student Profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwYnRmexdKaHL8z4hiam6ZLlI4khP6tgt-zm5Y6lg6CASLI-zebMbVvo2G_ggAEegJNzUyAuMLuymSHVM9cwbooS5sfHF1lnMZCdG7QAeq_NKB8cwdnjrRXig4ysFInMuLsUV644IOm7q9ak5yJIYzBTGyGlQQhycS653yZll_blTfi5nI3wAfl82ZVDLcXa5hrpoG_R9xES-cW4172jIt5d_kzWmq6KVmPODfNcZ7BNE3tWBnQ2xTS4ysd-e1uqu0EM6CqDzwnII"/>
+</div>
+<div class="ml-3 overflow-hidden">
+<p class="text-sm font-medium text-ui-text truncate">Alex Chen</p>
+<p class="text-xs text-ui-muted truncate">Lvl 4 Scholar</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- END: Side Navigation -->
+<!-- BEGIN: Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-obsidian-primary overflow-y-auto">
+<!-- BEGIN: Topbar -->
+<header class="h-16 border-b border-obsidian-surface bg-obsidian-primary/80 backdrop-blur-md sticky top-0 z-10 flex items-center justify-between px-8" data-purpose="topbar">
+<!-- Breadcrumb -->
+<div class="flex items-center space-x-2 text-sm">
+<span class="text-ui-muted">App</span>
+<span class="text-obsidian-card">/</span>
+<span class="text-ui-muted">Student</span>
+<span class="text-obsidian-card">/</span>
+<span class="text-ui-text font-medium">Dashboard</span>
+</div>
+<!-- Search & Actions -->
+<div class="flex items-center space-x-6">
+<div class="relative w-64">
+<input class="w-full bg-obsidian-card border-obsidian-surface text-sm text-ui-text rounded-full py-1.5 pl-10 pr-4 focus:ring-1 focus:ring-accent focus:border-accent" placeholder="Search skills, mentors..." type="text"/>
+<svg class="w-4 h-4 absolute left-3 top-2.5 text-ui-muted" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<button class="bg-accent hover:bg-accent-deep text-obsidian-primary px-5 py-2 rounded-full text-sm font-bold transition-all hover:scale-105">
+          Submit Activity
+        </button>
+</div>
+</header>
+<!-- END: Topbar -->
+<!-- BEGIN: Dashboard Grid -->
+<div class="p-8 max-w-7xl mx-auto w-full space-y-8">
+<!-- BEGIN: StatPills -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Total Verified Skills -->
+<div class="bg-obsidian-surface border border-obsidian-surface p-6 rounded-2xl flex items-center justify-between">
+<div>
+<p class="text-ui-muted text-xs font-semibold uppercase tracking-wider mb-1">Total Verified Skills</p>
+<h3 class="text-3xl font-bold text-ui-text">42</h3>
+</div>
+<div class="p-3 bg-accent/10 rounded-xl">
+<svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<!-- Growth Score -->
+<div class="bg-obsidian-surface border border-obsidian-surface p-6 rounded-2xl flex items-center justify-between">
+<div>
+<p class="text-ui-muted text-xs font-semibold uppercase tracking-wider mb-1">Growth Score</p>
+<h3 class="text-3xl font-bold text-ui-text">874</h3>
+<span class="text-xs text-ui-success">+12% this month</span>
+</div>
+<div class="p-3 bg-accent-secondary/10 rounded-xl">
+<svg class="w-8 h-8 text-accent-secondary" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+<!-- Pending Verifications -->
+<div class="bg-obsidian-surface border border-obsidian-surface p-6 rounded-2xl flex items-center justify-between">
+<div>
+<p class="text-ui-muted text-xs font-semibold uppercase tracking-wider mb-1">Pending Verifications</p>
+<h3 class="text-3xl font-bold text-ui-text">05</h3>
+</div>
+<div class="p-3 bg-ui-muted/10 rounded-xl">
+<svg class="w-8 h-8 text-ui-muted" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+</div>
+</section>
+<!-- END: StatPills -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- BEGIN: Skill Ledger -->
+<section class="xl:col-span-2 space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold text-ui-text flex items-center">
+<span class="w-1.5 h-6 bg-accent mr-3 rounded-full"></span>
+              Skill Ledger
+            </h2>
+<button class="text-accent text-sm font-medium hover:underline">View All Ledger</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Skill Card: Python -->
+<div class="bg-obsidian-card border border-obsidian-surface p-5 rounded-xl hover:border-accent/50 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-obsidian-surface rounded-lg flex items-center justify-center mr-3">
+<svg class="w-6 h-6 text-accent" fill="currentColor" viewbox="0 0 24 24"><path d="M11.996 2.01a5.3 5.3 0 0 0-4.996 4.996h4.996V11.996a5.3 5.3 0 0 0 5.004-5.004 5.3 5.3 0 0 0-5.004-4.982zm-7.004 7.004a5.3 5.3 0 0 0-4.982 5.004 5.3 5.3 0 0 0 5.004 4.982h4.982v-4.982a5.3 5.3 0 0 0-5.004-5.004z"></path></svg>
+</div>
+<div>
+<h4 class="text-ui-text font-semibold">Python</h4>
+<p class="text-xs text-ui-muted">Core Engineering</p>
+</div>
+</div>
+<span class="bg-accent/10 text-accent text-[10px] font-bold px-2 py-0.5 rounded border border-accent/20">VERIFIED</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-ui-muted">Proficiency</span>
+<span class="text-accent font-bold">85%</span>
+</div>
+<div class="w-full bg-obsidian-surface h-1.5 rounded-full overflow-hidden">
+<div class="bg-accent h-full w-[85%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Skill Card: React -->
+<div class="bg-obsidian-card border border-obsidian-surface p-5 rounded-xl hover:border-accent/50 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-obsidian-surface rounded-lg flex items-center justify-center mr-3">
+<svg class="w-6 h-6 text-ui-info" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.84L19.42 19H4.58L12 5.84z"></path></svg>
+</div>
+<div>
+<h4 class="text-ui-text font-semibold">React</h4>
+<p class="text-xs text-ui-muted">Frontend Dev</p>
+</div>
+</div>
+<span class="bg-accent/10 text-accent text-[10px] font-bold px-2 py-0.5 rounded border border-accent/20">VERIFIED</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-ui-muted">Proficiency</span>
+<span class="text-accent font-bold">90%</span>
+</div>
+<div class="w-full bg-obsidian-surface h-1.5 rounded-full overflow-hidden">
+<div class="bg-accent h-full w-[90%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Skill Card: UI/UX Design -->
+<div class="bg-obsidian-card border border-obsidian-surface p-5 rounded-xl hover:border-accent/50 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-obsidian-surface rounded-lg flex items-center justify-center mr-3">
+<svg class="w-6 h-6 text-accent-soft" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h4 class="text-ui-text font-semibold">UI/UX Design</h4>
+<p class="text-xs text-ui-muted">Product Design</p>
+</div>
+</div>
+<span class="bg-obsidian-surface text-ui-muted text-[10px] font-bold px-2 py-0.5 rounded border border-obsidian-card">IN REVIEW</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-ui-muted">Proficiency</span>
+<span class="text-accent font-bold">72%</span>
+</div>
+<div class="w-full bg-obsidian-surface h-1.5 rounded-full overflow-hidden">
+<div class="bg-accent h-full w-[72%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Skill Card: AWS -->
+<div class="bg-obsidian-card border border-obsidian-surface p-5 rounded-xl hover:border-accent/50 transition-all group">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center">
+<div class="w-10 h-10 bg-obsidian-surface rounded-lg flex items-center justify-center mr-3">
+<svg class="w-6 h-6 text-accent-deep" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<h4 class="text-ui-text font-semibold">Cloud Architecture</h4>
+<p class="text-xs text-ui-muted">Infrastructure</p>
+</div>
+</div>
+<span class="bg-accent/10 text-accent text-[10px] font-bold px-2 py-0.5 rounded border border-accent/20">VERIFIED</span>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs">
+<span class="text-ui-muted">Proficiency</span>
+<span class="text-accent font-bold">65%</span>
+</div>
+<div class="w-full bg-obsidian-surface h-1.5 rounded-full overflow-hidden">
+<div class="bg-accent h-full w-[65%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Skill Ledger -->
+<!-- BEGIN: Activity Timeline -->
+<section class="space-y-6">
+<h2 class="text-xl font-bold text-ui-text flex items-center">
+<span class="w-1.5 h-6 bg-accent mr-3 rounded-full"></span>
+            Recent Activity
+          </h2>
+<div class="bg-obsidian-surface border border-obsidian-surface rounded-xl p-6 relative overflow-hidden">
+<div class="space-y-8 relative">
+<!-- Vertical Line -->
+<div class="absolute left-3 top-2 bottom-2 w-px bg-obsidian-card"></div>
+<!-- Timeline Item 1 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 bg-obsidian-primary border-2 border-accent rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-accent rounded-full"></div>
+</div>
+<p class="text-sm font-semibold text-ui-text">Algorithm Challenge #4</p>
+<p class="text-xs text-ui-muted mt-1">Submitted for Python verification</p>
+<div class="mt-2 flex items-center">
+<span class="text-[10px] py-0.5 px-2 bg-accent-soft/10 text-accent-soft rounded-full border border-accent-soft/20">Pending</span>
+<span class="text-[10px] text-ui-muted ml-3">2 hours ago</span>
+</div>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 bg-obsidian-primary border-2 border-ui-success rounded-full flex items-center justify-center">
+<svg class="w-3 h-3 text-ui-success" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+</div>
+<p class="text-sm font-semibold text-ui-text">Advanced React Hooks</p>
+<p class="text-xs text-ui-muted mt-1">Verified by Senior Mentor Sarah L.</p>
+<div class="mt-2 flex items-center">
+<span class="text-[10px] py-0.5 px-2 bg-ui-success/10 text-ui-success rounded-full border border-ui-success/20">Verified</span>
+<span class="text-[10px] text-ui-muted ml-3">Yesterday</span>
+</div>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 bg-obsidian-primary border-2 border-obsidian-card rounded-full flex items-center justify-center">
+<div class="w-2 h-2 bg-obsidian-card rounded-full"></div>
+</div>
+<p class="text-sm font-semibold text-ui-text">Project: Dashboard UI</p>
+<p class="text-xs text-ui-muted mt-1">System automated health check</p>
+<div class="mt-2 flex items-center">
+<span class="text-[10px] py-0.5 px-2 bg-ui-muted/10 text-ui-muted rounded-full border border-ui-muted/20">Completed</span>
+<span class="text-[10px] text-ui-muted ml-3">2 days ago</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-xs font-bold text-ui-muted hover:text-accent border border-obsidian-card rounded-lg bg-obsidian-primary/50 hover:border-accent/30 transition-all">
+              Load Full History
+            </button>
+</div>
+</section>
+<!-- END: Activity Timeline -->
+<!-- BEGIN: Mentor Suggestions -->
+<section class="xl:col-span-3 space-y-6">
+<h2 class="text-xl font-bold text-ui-text flex items-center">
+<span class="w-1.5 h-6 bg-accent mr-3 rounded-full"></span>
+            Top Mentor Matches
+          </h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Mentor 1 -->
+<div class="bg-obsidian-surface border border-obsidian-surface rounded-xl p-5 hover:bg-obsidian-card transition-colors">
+<div class="flex items-center mb-4">
+<img alt="Mentor" class="w-12 h-12 rounded-full border-2 border-accent/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFNK2byBOOWpcNFjXEZ8cwgc3mX04yVYo8L1c60tqKcK0bDC_geWdlX0MGhxFy_qDY3vDRcIkKHBLI-PZu6UEPI3aED-VaUSTsR1cTY7PjgQCJsno0bfXCZzDpOo_fDUFTXHoj52hljMzC62wCnAmnKLl-5uuuNuocQXUq-vGnCN0m9xw4drrrJnRcgC7QPK6GtVzJlsNjvBh_pmoc-9cfKAZoQEXpXCdaxueCfb474qwLGgU8ut6dkogZmxGWFqL8rFasGqgUSOU"/>
+<div class="ml-3">
+<h5 class="text-ui-text font-semibold text-sm">Marcus Valerius</h5>
+<div class="flex items-center">
+<svg class="w-3 h-3 text-accent fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<span class="text-[10px] text-accent ml-1 font-bold">98% Reliable</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-[10px] px-2 py-0.5 bg-obsidian-primary text-ui-muted rounded-full border border-obsidian-card">Distributed Systems</span>
+<span class="text-[10px] px-2 py-0.5 bg-obsidian-primary text-ui-muted rounded-full border border-obsidian-card">GoLang</span>
+</div>
+<button class="w-full py-2 bg-accent text-obsidian-primary text-xs font-bold rounded-lg hover:bg-accent-deep transition-colors">Request Session</button>
+</div>
+<!-- Mentor 2 -->
+<div class="bg-obsidian-surface border border-obsidian-surface rounded-xl p-5 hover:bg-obsidian-card transition-colors">
+<div class="flex items-center mb-4">
+<img alt="Mentor" class="w-12 h-12 rounded-full border-2 border-obsidian-card" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADvLYpLkusggP0iy_DGSepD4aWhYU7gcHqEI75PN8LL4-7WBMo6k-uCgu3hSksWFtVOk9gDj3E0h6UbQxJftZkvzZ7U9f1Swu5xd3guFeM1rfVrx-iwqGM1BSc_dq6TeBqks6nq9rSErsIVbDvrZ3NZge4Jqxz4hzYY9Ql9skobm-7wcXg2X2jXL0GJmT3YH5dNsJr8vFeRsiOCPPbdAP_h7kFyX4azHPe4hY6tRsLZotYmbuL-fed8VPMddd-sxs-iMsV5zDY-9M"/>
+<div class="ml-3">
+<h5 class="text-ui-text font-semibold text-sm">Elena Petrova</h5>
+<div class="flex items-center">
+<svg class="w-3 h-3 text-accent fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<span class="text-[10px] text-accent ml-1 font-bold">94% Reliable</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-[10px] px-2 py-0.5 bg-obsidian-primary text-ui-muted rounded-full border border-obsidian-card">Product Management</span>
+<span class="text-[10px] px-2 py-0.5 bg-obsidian-primary text-ui-muted rounded-full border border-obsidian-card">Agile</span>
+</div>
+<button class="w-full py-2 bg-obsidian-card text-ui-text text-xs font-bold rounded-lg hover:bg-obsidian-surface transition-colors">Request Session</button>
+</div>
+<!-- Mentor 3 -->
+<div class="bg-obsidian-surface border border-obsidian-surface rounded-xl p-5 hover:bg-obsidian-card transition-colors">
+<div class="flex items-center mb-4">
+<img alt="Mentor" class="w-12 h-12 rounded-full border-2 border-obsidian-card" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr2WwZQxxak7P7Qrnf9FgyRUMEuHNwKApPf4Fk60bRhoTyfb_B9_mK5x-vuvJ5L6P_wqVoJpMpXIlFZALiOOaMhxnVqg6qcl5M64JD98oxbNU6st0BhxgJVocGehDqn1TEgI6N961j7LZUQxdzZia-tnzFZUeaKDbxIm0s5wUoChpF9ZdSuEqjFkC1Ckf12LS5wMWaa0sN3b6xm9_Hr63DRkz5Q76iBgPwW7l_a6imSXnJ2_Uo00XWutXoGccIOAu09zHUqZcSnks"/>
+<div class="ml-3">
+<h5 class="text-ui-text font-semibold text-sm">Satoshi Nakamoto</h5>
+<div class="flex items-center">
+<svg class="w-3 h-3 text-accent fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<span class="text-[10px] text-accent ml-1 font-bold">100% Reliable</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-[10px] px-2 py-0.5 bg-obsidian-primary text-ui-muted rounded-full border border-obsidian-card">Cryptography</span>
+<span class="text-[10px] px-2 py-0.5 bg-obsidian-primary text-ui-muted rounded-full border border-obsidian-card">Solidity</span>
+</div>
+<button class="w-full py-2 bg-obsidian-card text-ui-text text-xs font-bold rounded-lg hover:bg-obsidian-surface transition-colors">Request Session</button>
+</div>
+<!-- Mentor 4 -->
+<div class="bg-obsidian-surface border border-obsidian-surface rounded-xl p-5 hover:bg-obsidian-card transition-colors">
+<div class="flex items-center mb-4">
+<img alt="Mentor" class="w-12 h-12 rounded-full border-2 border-obsidian-card" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5nDwZ9HAUjf-EdvyIx--pn1NPiB6foUy63w1I0CPE2Xm2mYn6OEtwFNkCk3_IjA6LGZdo5H-TDirctlpeyhNMTjicETPxEpzqSoh5MHZ-A6jCCu1oZ_UkzpYkUPTjt2u2qfVxC3WlMc7D_T-Y1u-LAHoTVPsXn1tBQw8vgK8md-y-jv1L6PKX8UppaQmvYU4kgWIaxtyshMmGAIFf7KPtrhYRAPeGEcytKx81M3kHZGflQ0iw9etOuYKgjPFRUalLKaImS2Kj-3I"/>
+<div class="ml-3">
+<h5 class="text-ui-text font-semibold text-sm">Ada Lovelace</h5>
+<div class="flex items-center">
+<svg class="w-3 h-3 text-accent fill-current" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+<span class="text-[10px] text-accent ml-1 font-bold">99% Reliable</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="text-[10px] px-2 py-0.5 bg-obsidian-primary text-ui-muted rounded-full border border-obsidian-card">Pure Math</span>
+<span class="text-[10px] px-2 py-0.5 bg-obsidian-primary text-ui-muted rounded-full border border-obsidian-card">Fortran</span>
+</div>
+<button class="w-full py-2 bg-obsidian-card text-ui-text text-xs font-bold rounded-lg hover:bg-obsidian-surface transition-colors">Request Session</button>
+</div>
+</div>
+</section>
+<!-- END: Mentor Suggestions -->
+</div>
+</div>
+<!-- END: Dashboard Grid -->
+<!-- BEGIN: Footer -->
+<footer class="mt-auto border-t border-obsidian-surface p-8 text-center text-ui-muted text-xs">
+<p>© 2024 Synergy Ledger Systems. All skill assets are cryptographically verified.</p>
+</footer>
+<!-- END: Footer -->
+</main>
+<!-- END: Main Content Area -->
+</div>
+<!-- END: AppShell Container -->
+<script data-purpose="sidebar-toggle">
+    const sidebar = document.getElementById('sidebar');
+    let isCollapsed = false;
+
+    function toggleSidebar() {
+      if (isCollapsed) {
+        sidebar.classList.remove('w-20');
+        sidebar.classList.add('w-64');
+      } else {
+        sidebar.classList.remove('w-64');
+        sidebar.classList.add('w-20');
+      }
+      isCollapsed = !isCollapsed;
+    }
+  </script>
+</body></html>

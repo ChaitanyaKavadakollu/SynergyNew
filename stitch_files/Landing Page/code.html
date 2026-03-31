@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Synergy — Skills You Can Trust. Talent Recruiters Can Read.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              900: '#121212',
+              800: '#1C1C1C',
+              700: '#232323',
+            },
+            gold: {
+              DEFAULT: '#D4A373',
+              glow: 'rgba(212, 163, 115, 0.2)',
+            },
+            tealGold: '#6B9080',
+            muted: '#94A3B8',
+            surfaceText: '#F1F5F9',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-glassmorphism">
+    .glass-card {
+      background: rgba(35, 35, 35, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 163, 115, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .gold-glow {
+      box-shadow: 0 0 20px rgba(212, 163, 115, 0.15);
+    }
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #D4A373 0%, #6B9080 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .timeline-line {
+      background: linear-gradient(to bottom, #D4A373 0%, #6B9080 100%);
+    }
+  </style>
+</head>
+<body class="bg-obsidian-900 text-surfaceText font-sans selection:bg-gold/30">
+<!-- BEGIN: Navigation -->
+<nav class="sticky top-0 z-50 border-b border-obsidian-700 bg-obsidian-900/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-gold rounded flex items-center justify-center font-display font-bold text-obsidian-900">S</div>
+<span class="font-display font-bold text-xl tracking-tight">SYNERGY</span>
+</div>
+<div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+<a class="hover:text-gold transition-colors" href="#problem">Challenges</a>
+<a class="hover:text-gold transition-colors" href="#value">Solutions</a>
+<a class="hover:text-gold transition-colors" href="#journey">Journey</a>
+<a class="bg-gold text-obsidian-900 px-5 py-2 rounded-full hover:bg-gold/90 transition-all font-semibold" href="#waitlist">Get Access</a>
+</div>
+</div>
+</div>
+</nav>
+<!-- END: Navigation -->
+<main>
+<!-- BEGIN: HeroSection -->
+<section class="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden" data-purpose="hero">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<!-- Left Content -->
+<div class="z-10">
+<span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest uppercase border border-gold/30 rounded-full text-gold bg-gold/5">
+              For modern universities — Verified skills, not just grades
+            </span>
+<h1 class="font-display text-5xl lg:text-7xl font-bold leading-tight mb-6">
+              Synergy — Skills You Can <span class="text-gradient-gold">Trust.</span>
+</h1>
+<p class="text-muted text-lg lg:text-xl mb-10 max-w-lg leading-relaxed">
+              A verified skill ledger where students prove ability, faculty validate learning, and recruiters discover real talent.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="px-8 py-4 bg-gold text-obsidian-900 rounded-lg font-bold text-center hover:scale-105 transition-transform gold-glow focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-obsidian-900" href="#waitlist">
+                Get Early Access
+              </a>
+<button class="px-8 py-4 border border-obsidian-700 bg-obsidian-800/50 rounded-lg font-bold text-center hover:bg-obsidian-700 transition-colors flex items-center justify-center gap-2">
+<svg class="w-5 h-5" fill="currentColor" viewbox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"></path></svg>
+                Watch Demo
+              </button>
+</div>
+</div>
+<!-- Right Visuals (Glass Cards) -->
+<div class="relative flex justify-center lg:justify-end">
+<div class="relative w-full max-w-md h-[400px]">
+<!-- Background Glow -->
+<div class="absolute -top-10 -right-10 w-64 h-64 bg-gold/10 blur-[100px]"></div>
+<!-- Card: Skill Badge -->
+<div class="glass-card absolute top-0 left-0 p-6 rounded-2xl w-64 transform -rotate-3 hover:rotate-0 transition-transform duration-500 z-30">
+<div class="w-12 h-12 bg-gold/20 rounded-lg flex items-center justify-center mb-4">
+<svg class="w-6 h-6 text-gold" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="font-bold text-lg">Full-Stack Dev</h3>
+<p class="text-xs text-muted mb-4">Level 4 Certified</p>
+<div class="w-full bg-obsidian-700 h-1.5 rounded-full">
+<div class="bg-gold w-3/4 h-full rounded-full"></div>
+</div>
+</div>
+<!-- Card: Growth Graph -->
+<div class="glass-card absolute bottom-10 right-0 p-6 rounded-2xl w-64 transform rotate-6 hover:rotate-0 transition-transform duration-500 z-20">
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-semibold text-tealGold uppercase">Growth Analytics</span>
+<span class="text-xs text-green-400">+24%</span>
+</div>
+<div class="flex items-end gap-2 h-20">
+<div class="bg-obsidian-700 w-full h-8 rounded-sm"></div>
+<div class="bg-obsidian-700 w-full h-12 rounded-sm"></div>
+<div class="bg-gold w-full h-16 rounded-sm"></div>
+<div class="bg-tealGold w-full h-20 rounded-sm"></div>
+</div>
+</div>
+<!-- Card: Verification Tick -->
+<div class="glass-card absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 rounded-xl flex items-center gap-3 z-40 border-gold/40">
+<div class="w-8 h-8 rounded-full bg-tealGold flex items-center justify-center">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="text-sm font-bold">Faculty Verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Row -->
+<div class="mt-24 border-t border-obsidian-700 pt-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+<div class="flex flex-col gap-1">
+<span class="text-2xl font-bold font-display text-gold">Used by students</span>
+<p class="text-muted text-sm">at top-tier institutions</p>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-2xl font-bold font-display text-gold">1000+ activities</span>
+<p class="text-muted text-sm">successfully verified by faculty</p>
+</div>
+<div class="flex flex-col gap-1">
+<span class="text-2xl font-bold font-display text-gold">40% better</span>
+<p class="text-muted text-sm">visibility for recruiters</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+<!-- BEGIN: ProblemAgitateSection -->
+<section class="py-24 bg-obsidian-800" data-purpose="problem-section" id="problem">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-3xl lg:text-5xl font-display font-bold mb-4">The Talent Gap is Widening</h2>
+<p class="text-muted max-w-2xl mx-auto">Traditional education records are failing both students and the workforce.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-obsidian-700 p-8 rounded-2xl border border-obsidian-700 hover:border-gold/30 transition-all group">
+<div class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="text-xl font-bold mb-4">Grades Don't Show Real Skill</h3>
+<p class="text-muted text-sm leading-relaxed">A 4.0 GPA tells recruiters you can study, but it doesn't prove you can build, collaborate, or solve complex industry problems.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-obsidian-700 p-8 rounded-2xl border border-obsidian-700 hover:border-gold/30 transition-all group">
+<div class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 00-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="text-xl font-bold mb-4">Recruiters Cannot Trust Portfolios</h3>
+<p class="text-muted text-sm leading-relaxed">With AI-generated portfolios on the rise, recruiters are struggling to distinguish authentic expertise from polished facades.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-obsidian-700 p-8 rounded-2xl border border-obsidian-700 hover:border-gold/30 transition-all group">
+<div class="w-12 h-12 bg-red-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+<svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<h3 class="text-xl font-bold mb-4">Faculty Cannot Track Skill Growth</h3>
+<p class="text-muted text-sm leading-relaxed">Educators lack the tools to see how students develop soft and hard skills across different departments and extra-curriculars.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ProblemAgitateSection -->
+<!-- BEGIN: ValueStack -->
+<section class="py-24" data-purpose="value-stack" id="value">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-2 gap-16 items-start">
+<div>
+<h2 class="text-4xl lg:text-5xl font-display font-bold mb-8">The Infrastructure of Trust</h2>
+<p class="text-muted text-lg mb-8 leading-relaxed">
+              Synergy creates a verifiable loop between learning, validating, and hiring. Our platform ensures that every skill claimed is a skill earned.
+            </p>
+<div class="space-y-4">
+<!-- Feature Item -->
+<div class="flex items-start gap-4">
+<div class="w-6 h-6 rounded-full border border-gold flex items-center justify-center flex-shrink-0 mt-1">
+<div class="w-2 h-2 bg-gold rounded-full"></div>
+</div>
+<div>
+<h4 class="font-bold">Institutional Rigor</h4>
+<p class="text-sm text-muted">Directly integrated with university LMS and department workflows.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-6 h-6 rounded-full border border-gold flex items-center justify-center flex-shrink-0 mt-1">
+<div class="w-2 h-2 bg-gold rounded-full"></div>
+</div>
+<div>
+<h4 class="font-bold">Tamper-Proof Ledger</h4>
+<p class="text-sm text-muted">Skill records are immutable and cryptographically signed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<!-- Card 1: Skill Ledger -->
+<div class="bg-obsidian-800 p-6 rounded-2xl border-l-4 border-gold group hover:translate-x-2 transition-transform">
+<h3 class="text-xl font-bold mb-2">Skill Ledger</h3>
+<p class="text-muted text-sm">A living history of every project, code commit, and lab result verified in real-time.</p>
+</div>
+<!-- Card 2: Faculty Verification -->
+<div class="bg-obsidian-800 p-6 rounded-2xl border-l-4 border-tealGold group hover:translate-x-2 transition-transform">
+<h3 class="text-xl font-bold mb-2">Faculty Verification</h3>
+<p class="text-muted text-sm">Professor-led validation that adds institutional weight to student achievements.</p>
+</div>
+<!-- Card 3: Growth Analytics -->
+<div class="bg-obsidian-800 p-6 rounded-2xl border-l-4 border-gold group hover:translate-x-2 transition-transform">
+<h3 class="text-xl font-bold mb-2">Growth Analytics</h3>
+<p class="text-muted text-sm">Visual mapping of competency progression over a student's entire academic career.</p>
+</div>
+<!-- Card 4: Recruiter Discovery -->
+<div class="bg-obsidian-800 p-6 rounded-2xl border-l-4 border-tealGold group hover:translate-x-2 transition-transform">
+<h3 class="text-xl font-bold mb-2">Recruiter Discovery</h3>
+<p class="text-muted text-sm">Targeted search for specific, verified skill sets rather than generic degrees.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ValueStack -->
+<!-- BEGIN: SocialProof -->
+<section class="py-24 bg-obsidian-800/50" data-purpose="testimonials">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-display font-bold text-center mb-16 italic">"Synergy changes the conversation from 'What did you study?' to 'What can you do?'"</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="glass-card p-8 rounded-2xl">
+<p class="text-muted italic mb-6">"Finally, a way to see which students actually mastered the lab work vs. those who just passed the exam."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-obsidian-700 rounded-full border border-gold/30"></div>
+<div>
+<p class="text-sm font-bold">Dr. Elena Rossi</p>
+<p class="text-xs text-muted">Professor of Computer Science</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="glass-card p-8 rounded-2xl border-tealGold/20">
+<p class="text-muted italic mb-6">"We've reduced our technical screening time by 60% by trusting the Synergy verified skill badges."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-obsidian-700 rounded-full border border-gold/30"></div>
+<div>
+<p class="text-sm font-bold">Marcus Chen</p>
+<p class="text-xs text-muted">Engineering Lead, NexaCorp</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="glass-card p-8 rounded-2xl">
+<p class="text-muted italic mb-6">"I got my internship because my Synergy ledger showed 2 years of consistent React and Node.js progress."</p>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-obsidian-700 rounded-full border border-gold/30"></div>
+<div>
+<p class="text-sm font-bold">Sarah Jenkins</p>
+<p class="text-xs text-muted">Junior Developer &amp; Student</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: SocialProof -->
+<!-- BEGIN: TransformationJourney -->
+<section class="py-24" data-purpose="transformation-visual" id="journey">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-20">
+<h2 class="text-4xl font-display font-bold mb-4">Your Skill Transformation</h2>
+<p class="text-muted">From raw potential to verified elite talent.</p>
+</div>
+<div class="relative">
+<!-- Timeline Line -->
+<div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 timeline-line opacity-20 -translate-x-1/2"></div>
+<!-- Step 1 -->
+<div class="relative flex flex-col md:flex-row items-center mb-20">
+<div class="md:w-1/2 flex justify-end md:pr-16 mb-8 md:mb-0">
+<div class="text-right hidden md:block">
+<h3 class="text-2xl font-bold text-gold">Quick Win</h3>
+<p class="text-muted max-w-xs ml-auto">Verify your first skill and see your initial competency map come to life.</p>
+</div>
+</div>
+<div class="absolute left-8 md:left-1/2 w-4 h-4 bg-gold rounded-full -translate-x-1/2 z-10 border-4 border-obsidian-900"></div>
+<div class="md:w-1/2 md:pl-16 pl-16">
+<div class="md:hidden">
+<h3 class="text-xl font-bold text-gold mb-2">Quick Win</h3>
+<p class="text-muted mb-4">Verify your first skill and see your initial competency map come to life.</p>
+</div>
+<div class="bg-obsidian-800 p-6 rounded-xl border border-obsidian-700">
+<span class="text-xs font-bold text-gold uppercase tracking-widest">Stage 01</span>
+<p class="text-sm mt-2">Immediate Feedback Loop</p>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative flex flex-col md:flex-row items-center mb-20">
+<div class="md:w-1/2 md:pr-16 pl-16 md:pl-0 order-2 md:order-1">
+<div class="bg-obsidian-800 p-6 rounded-xl border border-obsidian-700">
+<span class="text-xs font-bold text-tealGold uppercase tracking-widest">Stage 02</span>
+<p class="text-sm mt-2">Skill Stacking &amp; Mastery</p>
+</div>
+</div>
+<div class="absolute left-8 md:left-1/2 w-4 h-4 bg-tealGold rounded-full -translate-x-1/2 z-10 border-4 border-obsidian-900 shadow-lg shadow-tealGold/20"></div>
+<div class="md:w-1/2 flex justify-start md:pl-16 mb-8 md:mb-0 order-1 md:order-2">
+<div class="text-left pl-16 md:pl-0">
+<h3 class="text-2xl font-bold text-tealGold">Compounding Growth</h3>
+<p class="text-muted max-w-xs">Layer verified badges to build a comprehensive, interdisciplinary profile.</p>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative flex flex-col md:flex-row items-center mb-20">
+<div class="md:w-1/2 flex justify-end md:pr-16 mb-8 md:mb-0">
+<div class="text-right hidden md:block">
+<h3 class="text-2xl font-bold text-gold">Competitive Advantage</h3>
+<p class="text-muted max-w-xs ml-auto">Stand out from thousands of applicants with a verified seal of quality.</p>
+</div>
+</div>
+<div class="absolute left-8 md:left-1/2 w-4 h-4 bg-gold rounded-full -translate-x-1/2 z-10 border-4 border-obsidian-900"></div>
+<div class="md:w-1/2 md:pl-16 pl-16">
+<div class="md:hidden">
+<h3 class="text-xl font-bold text-gold mb-2">Competitive Advantage</h3>
+<p class="text-muted mb-4">Stand out from thousands of applicants with a verified seal of quality.</p>
+</div>
+<div class="bg-obsidian-800 p-6 rounded-xl border border-obsidian-700">
+<span class="text-xs font-bold text-gold uppercase tracking-widest">Stage 03</span>
+<p class="text-sm mt-2">Verified Hiring Preference</p>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-16 pl-16 md:pl-0 order-2 md:order-1">
+<div class="bg-gold p-6 rounded-xl border border-gold text-obsidian-900">
+<span class="text-xs font-extrabold uppercase tracking-widest">Stage 04</span>
+<p class="text-sm mt-2 font-bold">Elite Market Positioning</p>
+</div>
+</div>
+<div class="absolute left-8 md:left-1/2 w-6 h-6 bg-gold rounded-full -translate-x-1/2 z-10 border-4 border-obsidian-900 flex items-center justify-center">
+<svg class="w-3 h-3 text-obsidian-900" fill="currentColor" viewbox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+</div>
+<div class="md:w-1/2 flex justify-start md:pl-16 mb-8 md:mb-0 order-1 md:order-2">
+<div class="text-left pl-16 md:pl-0">
+<h3 class="text-2xl font-bold text-gold">10x Talent Visibility</h3>
+<p class="text-muted max-w-xs">Enter the workforce not as a graduate, but as a proven subject matter expert.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: TransformationJourney -->
+<!-- BEGIN: SuccessState -->
+<section class="hidden py-12 px-4" id="success">
+<div class="max-w-md mx-auto glass-card p-12 rounded-3xl text-center border-tealGold">
+<div class="w-20 h-20 bg-tealGold/20 rounded-full flex items-center justify-center mx-auto mb-6">
+<svg class="w-10 h-10 text-tealGold" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+</div>
+<h2 class="text-2xl font-display font-bold mb-2">You're on the list!</h2>
+<p class="text-muted">Thanks for joining our early access waitlist. We'll be in touch soon with next steps.</p>
+</div>
+</section>
+<!-- END: SuccessState -->
+<!-- BEGIN: SecondaryCTA -->
+<section class="py-24" data-purpose="early-access-form" id="waitlist">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="glass-card p-12 rounded-3xl relative overflow-hidden">
+<!-- Background Glow -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gold via-tealGold to-gold"></div>
+<h2 class="text-3xl lg:text-4xl font-display font-bold mb-6">Ready to prove what you can actually do?</h2>
+<div class="flex justify-center -space-x-3 mb-8">
+<div class="w-10 h-10 rounded-full border-2 border-obsidian-800 bg-obsidian-700"></div>
+<div class="w-10 h-10 rounded-full border-2 border-obsidian-800 bg-obsidian-700"></div>
+<div class="w-10 h-10 rounded-full border-2 border-obsidian-800 bg-obsidian-700"></div>
+<div class="w-10 h-10 rounded-full border-2 border-obsidian-800 bg-gold flex items-center justify-center text-[10px] text-obsidian-900 font-bold">+500</div>
+</div>
+<form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onsubmit="event.preventDefault(); document.getElementById('waitlist').classList.add('hidden'); document.getElementById('success').classList.remove('hidden');">
+<input class="flex-grow bg-obsidian-900 border border-obsidian-700 rounded-lg px-6 py-4 focus:ring-gold focus:border-gold text-surfaceText" placeholder="Enter university email" required="" type="email"/>
+<button class="bg-gold text-obsidian-900 font-bold px-8 py-4 rounded-lg hover:scale-105 transition-transform" type="submit">Join Early Access</button>
+</form>
+<p class="text-xs text-muted mt-4">Limited spots available for the Fall '24 Beta.</p>
+</div>
+</div>
+</section>
+<!-- END: SecondaryCTA -->
+</main>
+<!-- BEGIN: Footer -->
+<footer class="bg-obsidian-900 border-t border-obsidian-700 pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+<div>
+<h4 class="font-bold mb-6 text-gold uppercase tracking-widest text-xs">Product</h4>
+<ul class="space-y-4 text-sm text-muted">
+<li><a class="hover:text-gold transition-colors" href="#">Skill Ledger</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Verification Flow</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Hiring Portal</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Pricing</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-gold uppercase tracking-widest text-xs">Features</h4>
+<ul class="space-y-4 text-sm text-muted">
+<li><a class="hover:text-gold transition-colors" href="#">LMS Integration</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Growth Analytics</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Badges &amp; NFTs</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Portfolio Export</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-gold uppercase tracking-widest text-xs">Resources</h4>
+<ul class="space-y-4 text-sm text-muted">
+<li><a class="hover:text-gold transition-colors" href="#">Documentation</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Case Studies</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Whitepaper</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Support</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold mb-6 text-gold uppercase tracking-widest text-xs">Legal</h4>
+<ul class="space-y-4 text-sm text-muted">
+<li><a class="hover:text-gold transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Security</a></li>
+<li><a class="hover:text-gold transition-colors" href="#">Compliance</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-obsidian-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-2">
+<div class="w-6 h-6 bg-gold/20 rounded flex items-center justify-center font-display font-bold text-xs text-gold">S</div>
+<span class="text-sm font-bold opacity-80">© 2024 Synergy Protocol. All rights reserved.</span>
+</div>
+<div class="flex gap-6">
+<a class="text-muted hover:text-gold transition-colors" href="#"><span class="sr-only">Twitter</span><svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg></a>
+<a class="text-muted hover:text-gold transition-colors" href="#"><span class="sr-only">LinkedIn</span><svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+</body></html>
