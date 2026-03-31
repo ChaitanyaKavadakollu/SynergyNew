@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-obsidian-900: #121212;
+  --color-obsidian-800: #1C1C1C;
+  --color-obsidian-700: #232323;
+
+  --color-gold: #D4A373;
+  --color-gold-glow: rgba(212, 163, 115, 0.2);
+
+  --color-tealGold: #6B9080;
+  
+  --color-muted: #94A3B8;
+  --color-surfaceText: #F1F5F9;
+
+  --font-sans: "Inter", var(--font-inter), sans-serif;
+  --font-display: "Poppins", var(--font-poppins), sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-obsidian-900 text-surfaceText font-sans selection:bg-gold/30;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    background: rgba(35, 35, 35, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 163, 115, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  .gold-glow {
+    box-shadow: 0 0 20px rgba(212, 163, 115, 0.15);
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #D4A373 0%, #6B9080 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .timeline-line {
+    background: linear-gradient(to bottom, #D4A373 0%, #6B9080 100%);
+  }
+}
